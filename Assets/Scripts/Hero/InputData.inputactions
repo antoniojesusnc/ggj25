@@ -1,0 +1,126 @@
+{
+    "name": "InputData",
+    "maps": [
+        {
+            "name": "Hero",
+            "id": "0505474c-85aa-4286-841d-9501f25733f0",
+            "actions": [
+                {
+                    "name": "MovementX",
+                    "type": "Value",
+                    "id": "64fc3e34-e7e1-43e7-bce7-d966951f5657",
+                    "expectedControlType": "Digital",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MovementY",
+                    "type": "Value",
+                    "id": "63d2b0f3-f46c-4fa7-96c1-ef0d4b120709",
+                    "expectedControlType": "Dpad",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0b929c11-d86a-48fe-b905-a7c79c29f4cc",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "Scale(factor=-1)",
+                    "groups": "InputController",
+                    "action": "MovementX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29f4ee1b-d71a-4fe4-b784-ce5af65f8bd7",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "Scale(factor=-1)",
+                    "groups": "InputController",
+                    "action": "MovementX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93e989f8-dbcf-47d3-a200-71cdf04b5a0d",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9650203-5edc-4600-9d16-a600a505dccc",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "272fe2f5-6485-463e-a4c8-654641c6e0f5",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1c570657-1d86-4a67-9775-5440a3810fa7",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementX",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c04c255-985a-438b-9c2a-b0180a5271c7",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "Scale(factor=-1)",
+                    "groups": "InputController",
+                    "action": "MovementY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7269652-989c-49a7-a015-739408cf7a33",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "Scale(factor=-1)",
+                    "groups": "InputController",
+                    "action": "MovementY",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "InputController",
+            "bindingGroup": "InputController",
+            "devices": []
+        }
+    ]
+}
