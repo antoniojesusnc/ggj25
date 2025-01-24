@@ -4,7 +4,9 @@ namespace ggj25
 {
     public class HeroController : MonoBehaviour
     {
-        [SerializeField] private HeroConfig _config;
+        [field: SerializeField] 
+        public HeroConfig Config { get; private set; }
+        
         private HeroInput _heroInput;
 
         private Rigidbody2D _rigidbody2D;
@@ -17,10 +19,10 @@ namespace ggj25
 
         private void LateUpdate()
         {
-            var input = _heroInput.Momentum * (_config.Speed * Time.deltaTime);
+            var input = _heroInput.Momentum * (Config.Speed * Time.deltaTime);
             transform.Translate(input);
 
-            _heroInput.DeductMomentum(_config.FrictionRate);
+            _heroInput.DeductMomentum(Config.FrictionRate);
         }
     }
 }
