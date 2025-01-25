@@ -23,6 +23,7 @@ namespace ggj25
         {
             SceneManager.LoadScene(1);
             SceneManager.sceneLoaded += OnGameSceneLoaded;
+
             Time.timeScale = 1;
             IsInGame = true;
         }
@@ -30,6 +31,7 @@ namespace ggj25
         private void OnGameSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
             LevelManager = new GameObject(nameof(ggj25.LevelManager)).AddComponent<LevelManager>();
+            SceneManager.sceneLoaded -= OnGameSceneLoaded;
         }
 
         public void PauseGame()

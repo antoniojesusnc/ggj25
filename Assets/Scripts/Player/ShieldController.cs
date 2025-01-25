@@ -60,35 +60,4 @@ public class ShieldController : MonoBehaviour
         return mousePosition;
     }
 
-    //player collider
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Escudo detecta colisi�n con proyectiles
-        if (collision.gameObject.CompareTag("Projectile"))
-        {
-            Debug.Log("Player bloque� el proyectil: " + collision.gameObject.name);
-            //Destroy(collision.gameObject); // Destruir proyectil al impactar
-        }
-    }
-
-    //player trigger
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        // Detectar colisiones con triggers
-        if (other.gameObject.CompareTag("Shield"))
-        {
-            Debug.Log("Trigger en el escudo: " + other.gameObject.name);
-        }
-        else if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Trigger en el jugador: " + other.gameObject.name);
-        }
-        else
-        {
-            Debug.Log("Trigger desconocido: " + other.gameObject.name);
-        }
-    }
-
-
-
 }
