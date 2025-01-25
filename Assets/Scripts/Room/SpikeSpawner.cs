@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using ggj25;
 using UnityEngine;
 
 public class SpikeSpawner : MonoBehaviour
@@ -12,9 +14,20 @@ public class SpikeSpawner : MonoBehaviour
     [SerializeField] protected float spikeSpeed = 5f; // Velocidad del pincho
 
     private float timer;
+    private RoomController _roomController;
+
+    private void Awake()
+    {
+        _roomController = GetComponentInParent<RoomController>();
+    }
 
     private void Update()
     {
+        if (_roomController?.IsActive == false)
+        {
+            return;
+        }
+        
         // Actualiza el temporizador
         timer += Time.deltaTime;
 

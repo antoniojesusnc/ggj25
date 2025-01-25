@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -28,47 +29,34 @@ namespace ggj25
         {
             _rooms = GameObject.FindObjectsOfType<RoomController>().ToList();
             _hero = GameObject.FindObjectOfType<HeroController>();
+
+            var initialRoom = _rooms.Find(room => room.name.Contains("tutori",
+                                                                  StringComparison.InvariantCultureIgnoreCase));
             
-            CheckPlayerRoom();
+            SelectRoom(initialRoom);
+            
             _timestamp = PLAYER_ROOM_CHECK_TIME;
             
             _completedRooms = 0;
             _gameWon = false;
         }
-
-        private void CheckPlayerRoom()
+        
+        public void SelectRoom(RoomController roomController)
         {
-            var _heroRect = new Rect(
-                _hero.transform.position.x,
-                _hero.transform.position.y,
-                1,
-                1);
-            
-            _rooms.ForEach(room => room.Init());
-            
-            foreach (var roomController in _rooms)
+            if (roomController == _currentRoom)
             {
-                if (roomController.RoomRect.Overlaps(_heroRect))
-                {
-                    _currentRoom?.SetActive(false);
-                    _currentRoom = roomController;
-                    _currentRoom.SetActive(true);
-                    break;
-                }
+                return;
             }
+            _currentRoom?.SetActive(false);
+            _currentRoom = roomController;
+            _currentRoom.SetActive(true);
+            
         }
 
         void Update()
         {
             if (_gameWon) return; // Skip updates if game is already won
             
-            _timestamp -= Time.deltaTime;
-            if (_timestamp <= 0)
-            {
-                CheckPlayerRoom();
-                _timestamp = PLAYER_ROOM_CHECK_TIME;
-            }
-
             if (IsCurrentRoomFinished())
             {
                 _currentRoom.Complete();

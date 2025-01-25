@@ -23,19 +23,6 @@ namespace ggj25
             }
         }
 
-        void OnTriggerEnter2D(Collider2D other)
-        {
-            // Detectar colisión con layers específicas
-            int otherLayer = other.gameObject.layer;
-
-            HitInShield();
-            
-            if (otherLayer == LAYER_SPIKE)
-            {
-                HitWithProjectile(other.gameObject);
-            }
-        }
-
         private void HitInShield()
         {
             SoundManager.Instance.PlaySFX(AudioType.SFX.HitInShield);
