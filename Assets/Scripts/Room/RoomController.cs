@@ -14,6 +14,7 @@ namespace ggj25
         [SerializeField] private SpriteRenderer _dust;
         [SerializeField] private SpriteRenderer _walldust;
         [SerializeField] private SpriteRenderer _roomLock;
+        [SerializeField] private ParticleSystem _cleaningEffect;
         
         private List<DoorController> _doors;
         
@@ -121,6 +122,8 @@ namespace ggj25
             _doors.ForEach(door => door.OpenDoor());
             _walldust.gameObject.SetActive(false);
             _isCompleted = true;
+            _cleaningEffect.gameObject.SetActive(true);
+            _cleaningEffect.Play();
         }
     }
 }
