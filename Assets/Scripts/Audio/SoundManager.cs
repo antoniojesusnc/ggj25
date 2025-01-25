@@ -14,6 +14,9 @@ public static class AudioType
     public enum Loop
     {
         MainTheme,
+        GameTheme,
+        GameWon,
+        GameOver,
         TestLoop1,
         TestLoop2,
     }

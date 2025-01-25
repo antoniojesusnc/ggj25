@@ -8,7 +8,7 @@ public class SpikeSpawner : MonoBehaviour
     [SerializeField] private GameObject spikePrefab; // Prefab del pincho
     [SerializeField] private Transform shootPoint;   // Punto de disparo
     [SerializeField] private float shootFrequency = 2f; // Frecuencia de disparo (en segundos)
-    [SerializeField] private Vector2 shootDirection = Vector2.right; // Dirección de disparo
+    [SerializeField] private Vector2 shootDirection = Vector2.right; // Direcciï¿½n de disparo
     [SerializeField] private float spikeSpeed = 5f; // Velocidad del pincho
 
     private float timer;
@@ -31,18 +31,19 @@ public class SpikeSpawner : MonoBehaviour
         // Instancia el pincho en el punto de disparo
         GameObject spike = Instantiate(spikePrefab, shootPoint.position, Quaternion.identity);
 
-        // Ajusta la dirección y velocidad del pincho
+        spike.gameObject.SetActive(true);
+        // Ajusta la direcciï¿½n y velocidad del pincho
         Rigidbody2D rb = spike.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
             rb.velocity = shootDirection.normalized * spikeSpeed;
         }
 
-        // Opcional: destruye el pincho después de un tiempo para optimizar
-        Destroy(spike, 5f); // Elimina el pincho después de 5 segundos
+        // Opcional: destruye el pincho despuï¿½s de un tiempo para optimizar
+        Destroy(spike, 5f); // Elimina el pincho despuï¿½s de 5 segundos
     }
 
-    // Función para cambiar la dirección del disparo desde otros scripts
+    // Funciï¿½n para cambiar la direcciï¿½n del disparo desde otros scripts
     public void SetShootDirection(Vector2 newDirection)
     {
         shootDirection = newDirection;

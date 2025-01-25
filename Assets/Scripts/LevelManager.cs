@@ -20,7 +20,7 @@ namespace ggj25
 
 
         public void Awake()
-        {
+        { 
             Init();
         }
 

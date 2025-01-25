@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,17 +14,27 @@ namespace ggj25
         
         public LevelManager LevelManager { get; private set; }
 
+        private void Start()
+        {
+            SoundManager.Instance.StopLoop();
+            SoundManager.Instance.PlayLoop(AudioType.Loop.MainTheme);
+        }
+
         public void ToMainMenu()
         {
             SceneManager.LoadScene(0);
             IsInGame = false;
             
             //De momento dejo esta cancion para empezar
+            SoundManager.Instance.StopLoop();
             SoundManager.Instance.PlayLoop(AudioType.Loop.MainTheme);
         }
 
         public void ToGame()
         {
+            SoundManager.Instance.StopLoop();
+            SoundManager.Instance.PlayLoop(AudioType.Loop.GameTheme);
+            
             SceneManager.LoadScene(1);
             SceneManager.sceneLoaded += OnGameSceneLoaded;
 
@@ -51,8 +62,19 @@ namespace ggj25
 
         public void GameOver(bool isWin)
         {
+            SoundManager.Instance.StopLoop();
+
+            if (isWin)
+            {
+                SoundManager.Instance.PlayLoop(AudioType.Loop.GameWon);
+            }
+            else
+            {
+                SoundManager.Instance.PlayLoop(AudioType.Loop.GameOver);
+            }
             Time.timeScale = 0;
             FindObjectOfType<UIGameOverView>(true).Open(isWin);
+            
         }
 
         public void ExitGame()

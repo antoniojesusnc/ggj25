@@ -392,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_fontSize
-      value: 49.05
+      value: 27.7
       objectReference: {fileID: 0}
     - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_fontColor.b
@@ -405,6 +405,10 @@ PrefabInstance:
     - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_fontColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 27.7
       objectReference: {fileID: 0}
     - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_enableAutoSizing
@@ -440,15 +444,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810441202449820799, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6810441202449820799, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6810441202449820799, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7340939514436241766, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_Pivot.x
@@ -558,7 +562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_fontSize
-      value: 49.05
+      value: 38.52
       objectReference: {fileID: 0}
     - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_fontColor.b
@@ -571,6 +575,10 @@ PrefabInstance:
     - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_fontColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 38.52
       objectReference: {fileID: 0}
     - target: {fileID: 5931397151787968397, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_enableAutoSizing
@@ -606,15 +614,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6810441202449820799, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6810441202449820799, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6810441202449820799, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7340939514436241766, guid: 2ed8134b2794ba14884bdb4fd4261e90, type: 3}
       propertyPath: m_Pivot.x

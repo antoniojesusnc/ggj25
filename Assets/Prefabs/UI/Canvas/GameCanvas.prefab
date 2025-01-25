@@ -215,6 +215,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3853372867305874123}
     m_Modifications:
+    - target: {fileID: 1033434299373914863, guid: 6614253dcec99234494b496f19524f18, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98e1e4394c406b8428ac73353016fb3d, type: 2}
+    - target: {fileID: 1033434299373914863, guid: 6614253dcec99234494b496f19524f18, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6108149648816631558, guid: 6614253dcec99234494b496f19524f18, type: 3}
       propertyPath: m_Name
       value: UIGameOverView
@@ -321,9 +329,61 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3853372867305874123}
     m_Modifications:
+    - target: {fileID: 1226873315327733777, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_fontSize
+      value: 31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226873315327733777, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504801829901708688, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98e1e4394c406b8428ac73353016fb3d, type: 2}
+    - target: {fileID: 1504801829901708688, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149827530119625699, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149827530119625699, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149827530119625699, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055353891010681161, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055353891010681161, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5055353891010681161, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402978064675492539, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_fontSize
+      value: 31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402978064675492539, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 31.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5652545237749418105, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
       propertyPath: m_Name
       value: UIPauseView
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652545237749418105, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7774275694982797953, guid: ef5f54c3d574b7544b6db2493dd9aa70, type: 3}
       propertyPath: m_Pivot.x
@@ -506,6 +566,14 @@ PrefabInstance:
     - target: {fileID: 7832947300942675448, guid: 26ef0b209c058f545b2d4dd9dc18a72e, type: 3}
       propertyPath: m_Name
       value: UIPauseButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065939829328325204, guid: 26ef0b209c058f545b2d4dd9dc18a72e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 98e1e4394c406b8428ac73353016fb3d, type: 2}
+    - target: {fileID: 8065939829328325204, guid: 26ef0b209c058f545b2d4dd9dc18a72e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
