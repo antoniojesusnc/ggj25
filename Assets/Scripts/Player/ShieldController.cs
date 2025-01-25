@@ -37,6 +37,11 @@ public class ShieldController : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.IsPlaying)
+        {
+            return;
+        }
+            
         Vector3 pointPosition = GetMousePosition();
         if (_heroInput != null)
         {

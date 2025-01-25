@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -63,6 +64,7 @@ namespace ggj25
         public void GameOver(bool isWin)
         {
             SoundManager.Instance.StopLoop();
+            Time.timeScale = 0;
 
             if (isWin)
             {
@@ -72,9 +74,9 @@ namespace ggj25
             {
                 SoundManager.Instance.PlayLoop(AudioType.Loop.GameOver);
             }
-            Time.timeScale = 0;
-            FindObjectOfType<UIGameOverView>(true).Open(isWin);
             
+            DOVirtual.DelayedCall(GameConfig.GameOverDelay, () => 
+                                      FindObjectOfType<UIGameOverView>(true).Open(isWin));
         }
 
         public void ExitGame()

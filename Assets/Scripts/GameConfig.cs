@@ -7,5 +7,9 @@ namespace ggj25
     {
         [field: SerializeField]
         public float CleanSuccessRate { get; private set; }
+        
+        [field: Header("Game Over Delay")]
+        [field: SerializeField]
+        public float GameOverDelay { get; private set; }
     }
 }

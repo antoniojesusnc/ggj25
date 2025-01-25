@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameConfig
   m_EditorClassIdentifier: 
   <CleanSuccessRate>k__BackingField: 0.1
+  <GameOverDelay>k__BackingField: 1
