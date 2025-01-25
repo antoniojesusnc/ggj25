@@ -6,6 +6,8 @@ namespace ggj25
     {
         [field: SerializeField] 
         public HeroConfig Config { get; private set; }
+        [field: SerializeField] 
+        public SpriteRenderer MainArt { get; private set; }
         
         private HeroInput _heroInput;
 

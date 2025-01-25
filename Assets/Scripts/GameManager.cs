@@ -5,21 +5,31 @@ namespace ggj25
 {
     public class GameManager : Singleton<GameManager>
     {
+        [field: SerializeField]
+        public GameConfig GameConfig { get; private set; }
+
         public bool IsInGame { get; private set; }
         public bool IsPlaying => Time.timeScale > 0;
+        
+        public LevelManager LevelManager { get; private set; }
 
         public void ToMainMenu()
         {
             SceneManager.LoadScene(0);
             IsInGame = false;
-            
         }
 
         public void ToGame()
         {
             SceneManager.LoadScene(1);
+            SceneManager.sceneLoaded += OnGameSceneLoaded;
             Time.timeScale = 1;
             IsInGame = true;
+        }
+
+        private void OnGameSceneLoaded(Scene arg0, LoadSceneMode arg1)
+        {
+            LevelManager = new GameObject(nameof(ggj25.LevelManager)).AddComponent<LevelManager>();
         }
 
         public void PauseGame()

@@ -1,6 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using deVoid.Utils;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ggj25
@@ -8,9 +9,16 @@ namespace ggj25
     public class RoomController : MonoBehaviour
     {
         private const float UPDATE_RATE = 0.1f;
-
+        
+        [field: SerializeField] public SpriteRenderer MainArt { get; private set; }
         [SerializeField] private SpriteRenderer _dust;
-
+        [SerializeField] private SpriteRenderer _walldust;
+        [SerializeField] private SpriteRenderer _roomLock;
+        
+        private List<DoorController> _doors;
+        
+        public float CleanFactor { get; private set; }
+        
         private HeroController _hero;
 
         private Vector3 _previousPosition;
@@ -20,6 +28,14 @@ namespace ggj25
 
         private float _timeStamp;
 
+        private bool _isActive;
+        private bool _isCompleted;
+        public Rect RoomRect => new Rect(
+            transform.position.x -MainArt.sprite.rect.width*0.5f / MainArt.sprite.pixelsPerUnit,
+            transform.position.y -MainArt.sprite.rect.height*0.5f / MainArt.sprite.pixelsPerUnit,
+            MainArt.sprite.rect.width,
+            MainArt.sprite.rect.height);  
+
         private void Start()
         {
             _hero = GameObject.FindObjectOfType<HeroController>();
@@ -28,10 +44,17 @@ namespace ggj25
             _dustCleaner = new DustCleaner(_dust);
 
             _pixelSize = _dust.sprite.texture.GetPixels().Length;
+
+            _doors = GetComponentsInChildren<DoorController>().ToList();
         }
 
         private void Update()
         {
+            if (!_isActive || _isCompleted)
+            {
+                return;
+            }
+            
             _dustCleaner.TryClear();
 
             _timeStamp -= Time.deltaTime;
@@ -57,13 +80,15 @@ namespace ggj25
                 {
                     pixelColored += CalculateCleaningRate(x, y, width, height);
                     y += height;
-
+                    yield return 0;
                 }
 
                 x += width;
                 yield return 0;
             }
-            Signals.Get<OnRoomCleaningRateChanged>().Dispatch(pixelColored / (float)_pixelSize);
+
+            CleanFactor = pixelColored / (float)_pixelSize;
+            Signals.Get<OnRoomCleaningRateChanged>().Dispatch(CleanFactor);
         }
 
         private int CalculateCleaningRate(int x, int y, int width, int height)
@@ -79,6 +104,23 @@ namespace ggj25
             }
 
             return pixelColored;
+        }
+
+        public void SetActive(bool isActive)
+        {
+            _isActive = isActive;
+            if (_roomLock.gameObject.activeSelf && _isActive)
+            { 
+                _roomLock.gameObject.SetActive(false);
+            }
+        }
+
+        public void Complete()
+        {
+            _dust.gameObject.SetActive(false);
+            _doors.ForEach(door => door.OpenDoor());
+            _walldust.gameObject.SetActive(false);
+            _isCompleted = true;
         }
     }
 }

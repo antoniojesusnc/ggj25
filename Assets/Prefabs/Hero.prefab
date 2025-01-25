@@ -293,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Config>k__BackingField: {fileID: 11400000, guid: b9553c29d5b9df2419472e9ac3ec5739, type: 2}
+  <MainArt>k__BackingField: {fileID: 6177073295070372857}
 --- !u!114 &2459604621847979470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +344,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &6894134468790618053
