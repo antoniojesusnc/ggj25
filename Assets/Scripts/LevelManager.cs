@@ -47,7 +47,6 @@ namespace ggj25
             {
                 return;
             }
-            Debug.Log($"TTT Selecting: {roomController.name} instead of {_currentRoom?.name}");
             _currentRoom?.SetActive(false);
             _currentRoom = roomController;
             _currentRoom.SetActive(true);
