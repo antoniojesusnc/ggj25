@@ -107,12 +107,12 @@ namespace ggj25
         public void SetActive(bool isActive)
         {
             IsActive = isActive;
-            if (_isActive)
+            if (IsActive)
             {
                 Init();
             }
             
-            if (_roomLock.gameObject.activeSelf && _isActive)
+            if (_roomLock.gameObject.activeSelf && IsActive)
             { 
                 _roomLock.gameObject.SetActive(false);
             }
