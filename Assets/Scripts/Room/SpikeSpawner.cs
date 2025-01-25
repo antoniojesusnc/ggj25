@@ -5,11 +5,11 @@ using UnityEngine;
 public class SpikeSpawner : MonoBehaviour
 {
     [Header("Spawner configurator")]
-    [SerializeField] private GameObject spikePrefab; // Prefab del pincho
-    [SerializeField] private Transform shootPoint;   // Punto de disparo
-    [SerializeField] private float shootFrequency = 2f; // Frecuencia de disparo (en segundos)
-    [SerializeField] private Vector2 shootDirection = Vector2.right; // Direcci�n de disparo
-    [SerializeField] private float spikeSpeed = 5f; // Velocidad del pincho
+    [SerializeField] protected GameObject spikePrefab; // Prefab del pincho
+    [SerializeField] protected Transform shootPoint;   // Punto de disparo
+    [SerializeField] protected float shootFrequency = 2f; // Frecuencia de disparo (en segundos)
+    [SerializeField] protected Vector2 shootDirection = Vector2.right; // Direcci�n de disparo
+    [SerializeField] protected float spikeSpeed = 5f; // Velocidad del pincho
 
     private float timer;
 
@@ -26,7 +26,7 @@ public class SpikeSpawner : MonoBehaviour
         }
     }
 
-    private void ShootSpike()
+    protected virtual void ShootSpike()
     {
         // Instancia el pincho en el punto de disparo
         GameObject spike = Instantiate(spikePrefab, shootPoint.position, Quaternion.identity);

@@ -29,7 +29,8 @@ namespace ggj25
 
         private float _timeStamp;
 
-        private bool _isActive;
+
+        public bool IsActive { get; private set; }
         public bool IsCompleted { get; private set; }
         
         public void Init()
@@ -47,7 +48,7 @@ namespace ggj25
 
         private void Update()
         {
-            if (!_isActive || IsCompleted)
+            if (!IsActive || IsCompleted)
             {
                 return;
             }
@@ -105,7 +106,7 @@ namespace ggj25
 
         public void SetActive(bool isActive)
         {
-            _isActive = isActive;
+            IsActive = isActive;
             if (_isActive)
             {
                 Init();
