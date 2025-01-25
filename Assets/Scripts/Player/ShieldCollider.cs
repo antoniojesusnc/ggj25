@@ -19,7 +19,7 @@ namespace ggj25
             
             if (collisionLayer == LAYER_SPIKE)
             { 
-                DestroyProjectile(collision.gameObject);
+                HitWithProjectile(collision.gameObject);
             }
         }
 
@@ -32,7 +32,7 @@ namespace ggj25
             
             if (otherLayer == LAYER_SPIKE)
             {
-                DestroyProjectile(other.gameObject);
+                HitWithProjectile(other.gameObject);
             }
         }
 
@@ -47,14 +47,15 @@ namespace ggj25
             _shieldHitEffect.Play();
         }
 
-        private static void DestroyProjectile(GameObject otherGameObject)
+        private static void HitWithProjectile(GameObject otherGameObject)
         {
-            
+            /*
             Debug.Log("Escudo bloqueó un proyectil (Trigger): " + otherGameObject.name);
             Destroy(otherGameObject.gameObject); // Destruir proyectil al impactar
             
             //De momento dejo esta cancion para empezar
             SoundManager.Instance.PlaySFX(AudioType.SFX.ProjectileDestroyed);
+            */
         }
     }
 }

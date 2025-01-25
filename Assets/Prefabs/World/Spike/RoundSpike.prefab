@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8045390134862553150}
   - component: {fileID: 996330065598141970}
   - component: {fileID: 8094292738859256265}
-  - component: {fileID: 8476663142330146947}
+  - component: {fileID: 4305059996878334827}
   m_Layer: 8
-  m_Name: SpikeDown
+  m_Name: RoundSpike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ca6f3f75ed8c9846ba1a144e51008e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _destroyOnHit: 0
 --- !u!212 &996330065598141970
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8bb66f5b1096ab34697c241da56e0e83, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f7228e17eaad38046b52b8a0e9d067f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,8 +127,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8476663142330146947
-BoxCollider2D:
+--- !u!58 &4305059996878334827
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -158,16 +159,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.71, y: 6.17}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
-  m_EdgeRadius: 0
+  m_Radius: 3.59
