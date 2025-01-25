@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace ggj25
@@ -13,9 +12,9 @@ namespace ggj25
             _roomController = GetComponentInParent<RoomController>();
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.layer == _layerMask.value)
+            if (1 << other.gameObject.layer == _layerMask.value)
             {
                 GameManager.Instance.LevelManager.SelectRoom(_roomController);
             }
