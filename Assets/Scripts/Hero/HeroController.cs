@@ -22,7 +22,10 @@ namespace ggj25
             var input = _heroInput.Momentum * (Config.Speed * Time.deltaTime);
             transform.Translate(input);
 
-            _heroInput.DeductMomentum(Config.FrictionRate);
+            if (!_heroInput.IsPressed)
+            {
+                _heroInput.DeductMomentum(Config.FrictionRate);
+            }
         }
     }
 }

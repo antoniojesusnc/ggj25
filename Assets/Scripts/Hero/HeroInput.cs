@@ -8,6 +8,7 @@ namespace ggj25
         private InputData _input;
 
         public Vector2 Momentum { get; private set; } = new Vector2();
+        public bool IsPressed { get; private set; }
         
         private void Start()
         {
@@ -23,27 +24,35 @@ namespace ggj25
 
         void Update()
         {
-            if (_input.Hero.MovementX.IsPressed())
+            IsPressed = false;
+            if (_input.Hero.MovementX.IsPressed() || _input.Hero.MovementY.IsPressed())
             {
-                OnMovementX();
+                Momentum = Vector2.zero;
+                OnMovementX(_input.Hero.MovementX.ReadValue<float>());
+                OnMovementY(_input.Hero.MovementY.ReadValue<float>());
             }
             
-            if (_input.Hero.MovementY.IsPressed())
+            if (_input.Hero.MovementTest.IsPressed())
             {
-                OnMovementY();
+                Momentum = Vector2.zero;
+                var vector2 = _input.Hero.MovementTest.ReadValue<Vector2>();
+                OnMovementX(vector2.x);
+                OnMovementY(vector2.y);
             }
         }
         
-        private void OnMovementX()
+        private void OnMovementX(float value)
         {
-            var newX = Mathf.Clamp(Momentum.x + _input.Hero.MovementX.ReadValue<float>(), -1, 1);
+            var newX = Mathf.Clamp(Momentum.x + value, -1, 1);
             Momentum = new Vector2(newX, Momentum.y);
+            IsPressed = true;
         }
         
-        private void OnMovementY()
+        private void OnMovementY(float value)
         {
-            var newY = Mathf.Clamp(Momentum.y + _input.Hero.MovementY.ReadValue<float>(), -1, 1);
+            var newY = Mathf.Clamp(Momentum.y + value, -1, 1);
             Momentum = new Vector2(Momentum.x, newY);
+            IsPressed = true;
         }
 
         public void DeductMomentum(float configFrictionRate)

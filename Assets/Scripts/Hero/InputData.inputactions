@@ -7,18 +7,27 @@
             "actions": [
                 {
                     "name": "MovementX",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "64fc3e34-e7e1-43e7-bce7-d966951f5657",
-                    "expectedControlType": "Digital",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
                     "name": "MovementY",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "63d2b0f3-f46c-4fa7-96c1-ef0d4b120709",
-                    "expectedControlType": "Dpad",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MovementTest",
+                    "type": "PassThrough",
+                    "id": "efa77db0-51ea-48da-83ac-00f1a2b3feb4",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -26,90 +35,178 @@
             ],
             "bindings": [
                 {
-                    "name": "",
-                    "id": "0b929c11-d86a-48fe-b905-a7c79c29f4cc",
+                    "name": "XAxis",
+                    "id": "d2a7b18e-e761-40d5-ad6c-3a2c94e312d5",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovementX",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "101e4ea7-c3fb-430c-a402-e691e7157bf2",
                     "path": "<Keyboard>/a",
                     "interactions": "",
-                    "processors": "Scale(factor=-1)",
+                    "processors": "",
                     "groups": "InputController",
                     "action": "MovementX",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "29f4ee1b-d71a-4fe4-b784-ce5af65f8bd7",
+                    "name": "negative",
+                    "id": "286c52c2-4437-4b9a-a465-6ef53bbca057",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
-                    "processors": "Scale(factor=-1)",
+                    "processors": "",
                     "groups": "InputController",
                     "action": "MovementX",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "93e989f8-dbcf-47d3-a200-71cdf04b5a0d",
-                    "path": "<Keyboard>/w",
+                    "name": "negative",
+                    "id": "4bdb7fa8-c1d6-4863-8805-e57a836ab1fb",
+                    "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "InputController",
-                    "action": "MovementY",
+                    "action": "MovementX",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "b9650203-5edc-4600-9d16-a600a505dccc",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "InputController",
-                    "action": "MovementY",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "272fe2f5-6485-463e-a4c8-654641c6e0f5",
+                    "name": "positive",
+                    "id": "2036fc2a-9307-4716-b2be-217a40a6d85c",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "InputController",
                     "action": "MovementX",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "1c570657-1d86-4a67-9775-5440a3810fa7",
+                    "name": "positive",
+                    "id": "3df732a3-af3e-4fef-9ef4-47428599ce62",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "InputController",
                     "action": "MovementX",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "eba002d5-c9b8-4d71-bce5-483f8b9127a7",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementX",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "YAxis",
+                    "id": "424e27e9-7efa-49cc-a07c-97769ff08c6b",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovementY",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "3c04c255-985a-438b-9c2a-b0180a5271c7",
+                    "name": "negative",
+                    "id": "d5526518-cf9e-4c5b-bd22-1da85a9b61e2",
                     "path": "<Keyboard>/s",
                     "interactions": "",
-                    "processors": "Scale(factor=-1)",
+                    "processors": "",
                     "groups": "InputController",
                     "action": "MovementY",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "93d47d30-c27b-4222-b38e-6b10342e51b1",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "90259bc7-9403-4ccd-87f0-d6119c1cb594",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "93f74fc4-2b51-448e-9a51-1f502df840b1",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "8f0217e7-51d0-4d70-9b71-dc0262d13083",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "efbe495c-186e-47c9-8547-63961682b2de",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Axis",
+                    "id": "562b878b-45c4-43e5-b486-fa413751586d",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovementTest",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "c7269652-989c-49a7-a015-739408cf7a33",
-                    "path": "<Keyboard>/downArrow",
+                    "id": "16f1b06e-f02f-4daa-a200-e68c0a9aaa9b",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "Scale(factor=-1)",
+                    "processors": "",
                     "groups": "InputController",
-                    "action": "MovementY",
+                    "action": "MovementTest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
