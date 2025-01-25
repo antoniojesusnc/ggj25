@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea42607ec69d539438afffcf167bf06f, type: 3}
   m_Name: HeroConfig
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 2
-  <FrictionRate>k__BackingField: 0
-  <CleanSize>k__BackingField: 50
+  <Speed>k__BackingField: 4
+  <FrictionRate>k__BackingField: 0.99
+  <ShieldDistance>k__BackingField: 0.68
+  <CleanSize>k__BackingField: 60
