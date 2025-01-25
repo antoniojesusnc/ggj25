@@ -31,12 +31,6 @@ namespace ggj25
 
         private bool _isActive;
         public bool IsCompleted { get; private set; }
-        public Rect RoomRect => new Rect(
-            transform.position.x - (MainArt.sprite.textureRect.width*0.5f) / MainArt.sprite.pixelsPerUnit * MainArt.transform.lossyScale.x,
-            transform.position.y - (MainArt.sprite.textureRect.height*0.5f) / MainArt.sprite.pixelsPerUnit * MainArt.transform.lossyScale.y,
-            MainArt.sprite.textureRect.width / MainArt.sprite.pixelsPerUnit * MainArt.transform.lossyScale.x,
-            MainArt.sprite.textureRect.height / MainArt.sprite.pixelsPerUnit * MainArt.transform.lossyScale.y);  
-
         
         public void Init()
         {
@@ -112,6 +106,11 @@ namespace ggj25
         public void SetActive(bool isActive)
         {
             _isActive = isActive;
+            if (_isActive)
+            {
+                Init();
+            }
+            
             if (_roomLock.gameObject.activeSelf && _isActive)
             { 
                 _roomLock.gameObject.SetActive(false);

@@ -18,7 +18,6 @@ public class ShieldController : MonoBehaviour
     [SerializeField] private Sprite _upSprite;    // Sprite mirando hacia arriba
     [SerializeField] private Sprite _downSprite;  // Sprite mirando hacia abajo
     [SerializeField] private Sprite _sideSprite;  // Sprite mirando hacia los lados
-    private bool test = true;
 
     private void Awake()
     {
