@@ -8,7 +8,7 @@ namespace ggj25
 {
     public class RoomController : MonoBehaviour
     {
-        private const float UPDATE_RATE = 0.1f;
+        private const float UPDATE_RATE = 0.5f;
         
         [field: SerializeField] public SpriteRenderer MainArt { get; private set; }
         [SerializeField] private SpriteRenderer _dust;
