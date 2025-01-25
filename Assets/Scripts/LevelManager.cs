@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ggj25
@@ -13,6 +14,10 @@ namespace ggj25
         private List<RoomController> _rooms;
         private RoomController _currentRoom;
         private HeroController _hero;
+        
+        private int _completedRooms = 0;
+        private bool _gameWon = false;
+
 
         public void Awake()
         {
@@ -26,6 +31,9 @@ namespace ggj25
             
             CheckPlayerRoom();
             _timestamp = PLAYER_ROOM_CHECK_TIME;
+            
+            _completedRooms = 0;
+            _gameWon = false;
         }
 
         private void CheckPlayerRoom()
@@ -49,6 +57,8 @@ namespace ggj25
 
         void Update()
         {
+            if (_gameWon) return; // Skip updates if game is already won
+            
             _timestamp -= Time.deltaTime;
             if (_timestamp <= 0)
             {
@@ -59,12 +69,24 @@ namespace ggj25
             if (IsCurrentRoomFinished())
             {
                 _currentRoom.Complete();
+                _completedRooms++;
+                CheckWinCondition();
+            }
+        }
+        
+        private void CheckWinCondition()
+        {
+            if (_completedRooms >= _rooms.Count)
+            {
+                _gameWon = true;
+                GameManager.Instance.GameOver(true);
             }
         }
 
         private bool IsCurrentRoomFinished()
         {
-            return _currentRoom.CleanFactor >= GameManager.Instance.GameConfig.CleanSuccessRate;
+            return _currentRoom.CleanFactor >= GameManager.Instance.GameConfig.CleanSuccessRate 
+                && !_currentRoom.IsCompleted;
         }
     }
 }

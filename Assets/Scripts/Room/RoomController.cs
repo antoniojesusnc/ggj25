@@ -30,7 +30,7 @@ namespace ggj25
         private float _timeStamp;
 
         private bool _isActive;
-        private bool _isCompleted;
+        public bool IsCompleted { get; private set; }
         public Rect RoomRect => new Rect(
             transform.position.x -MainArt.sprite.rect.width*0.5f / MainArt.sprite.pixelsPerUnit,
             transform.position.y -MainArt.sprite.rect.height*0.5f / MainArt.sprite.pixelsPerUnit,
@@ -51,7 +51,7 @@ namespace ggj25
 
         private void Update()
         {
-            if (!_isActive || _isCompleted)
+            if (!_isActive || IsCompleted)
             {
                 return;
             }
