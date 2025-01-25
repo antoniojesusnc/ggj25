@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,13 +25,19 @@ namespace ggj25
         public void PauseGame()
         {
             Time.timeScale = 0;
-            FindObjectOfType<UIPauseView>(true).gameObject.SetActive(true);
+            FindObjectOfType<UIPauseView>(true).Open();
         }
 
         public void ContinueGame()
         {
             Time.timeScale = 1;
-            FindObjectOfType<UIPauseView>().gameObject.SetActive(false);
+            FindObjectOfType<UIPauseView>().Close();
+        }
+
+        public void GameOver(bool isWin)
+        {
+            Time.timeScale = 0;
+            FindObjectOfType<UIGameOverView>().Open(isWin);
         }
 
         public void ExitGame()
