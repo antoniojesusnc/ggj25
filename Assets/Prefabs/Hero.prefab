@@ -190,7 +190,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &6698576353158696487
 MonoBehaviour:
@@ -371,7 +371,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 6909209901500643110}
   shieldDistance: 1.5
-  <MainArt>k__BackingField: {fileID: 0}
   <shieldObject>k__BackingField: {fileID: 5902046270998600158}
   _upSprite: {fileID: 21300000, guid: 4a09a4b5fc9ae0f44b464c4490902feb, type: 3}
   _downSprite: {fileID: 21300000, guid: d3846cf19dc24c54699a3f0c20a1a7a8, type: 3}

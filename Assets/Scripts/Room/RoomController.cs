@@ -29,7 +29,8 @@ namespace ggj25
 
         private float _timeStamp;
 
-        private bool _isActive;
+
+        public bool IsActive { get; private set; }
         public bool IsCompleted { get; private set; }
         public Rect RoomRect => new Rect(
             transform.position.x - (MainArt.sprite.textureRect.width*0.5f) / MainArt.sprite.pixelsPerUnit * MainArt.transform.lossyScale.x,
@@ -53,7 +54,7 @@ namespace ggj25
 
         private void Update()
         {
-            if (!_isActive || IsCompleted)
+            if (!IsActive || IsCompleted)
             {
                 return;
             }
@@ -111,8 +112,8 @@ namespace ggj25
 
         public void SetActive(bool isActive)
         {
-            _isActive = isActive;
-            if (_roomLock.gameObject.activeSelf && _isActive)
+            IsActive = isActive;
+            if (_roomLock.gameObject.activeSelf && IsActive)
             { 
                 _roomLock.gameObject.SetActive(false);
             }
