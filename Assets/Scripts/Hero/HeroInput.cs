@@ -32,10 +32,10 @@ namespace ggj25
                 OnMovementY(_input.Hero.MovementY.ReadValue<float>());
             }
             
-            if (_input.Hero.MovementTest.IsPressed())
+            if (_input.Hero.MovementPad.IsPressed())
             {
                 Momentum = Vector2.zero;
-                var vector2 = _input.Hero.MovementTest.ReadValue<Vector2>();
+                var vector2 = _input.Hero.MovementPad.ReadValue<Vector2>();
                 OnMovementX(vector2.x);
                 OnMovementY(vector2.y);
             }

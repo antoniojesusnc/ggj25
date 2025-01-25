@@ -46,7 +46,7 @@ public partial class @InputData: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""MovementTest"",
+                    ""name"": ""MovementPad"",
                     ""type"": ""PassThrough"",
                     ""id"": ""efa77db0-51ea-48da-83ac-00f1a2b3feb4"",
                     ""expectedControlType"": ""Vector2"",
@@ -90,17 +90,6 @@ public partial class @InputData: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""4bdb7fa8-c1d6-4863-8805-e57a836ab1fb"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""InputController"",
-                    ""action"": ""MovementX"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""positive"",
                     ""id"": ""2036fc2a-9307-4716-b2be-217a40a6d85c"",
                     ""path"": ""<Keyboard>/d"",
@@ -115,17 +104,6 @@ public partial class @InputData: IInputActionCollection2, IDisposable
                     ""name"": ""positive"",
                     ""id"": ""3df732a3-af3e-4fef-9ef4-47428599ce62"",
                     ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""InputController"",
-                    ""action"": ""MovementX"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""eba002d5-c9b8-4d71-bce5-483f8b9127a7"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""InputController"",
@@ -167,17 +145,6 @@ public partial class @InputData: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""negative"",
-                    ""id"": ""90259bc7-9403-4ccd-87f0-d6119c1cb594"",
-                    ""path"": ""<Gamepad>/leftStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""InputController"",
-                    ""action"": ""MovementY"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""positive"",
                     ""id"": ""93f74fc4-2b51-448e-9a51-1f502df840b1"",
                     ""path"": ""<Keyboard>/w"",
@@ -200,24 +167,13 @@ public partial class @InputData: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""positive"",
-                    ""id"": ""efbe495c-186e-47c9-8547-63961682b2de"",
-                    ""path"": ""<Gamepad>/leftStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""InputController"",
-                    ""action"": ""MovementY"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": ""Axis"",
                     ""id"": ""562b878b-45c4-43e5-b486-fa413751586d"",
                     ""path"": ""TwoModifiers"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MovementTest"",
+                    ""action"": ""MovementPad"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -228,7 +184,7 @@ public partial class @InputData: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""InputController"",
-                    ""action"": ""MovementTest"",
+                    ""action"": ""MovementPad"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -247,7 +203,7 @@ public partial class @InputData: IInputActionCollection2, IDisposable
         m_Hero = asset.FindActionMap("Hero", throwIfNotFound: true);
         m_Hero_MovementX = m_Hero.FindAction("MovementX", throwIfNotFound: true);
         m_Hero_MovementY = m_Hero.FindAction("MovementY", throwIfNotFound: true);
-        m_Hero_MovementTest = m_Hero.FindAction("MovementTest", throwIfNotFound: true);
+        m_Hero_MovementPad = m_Hero.FindAction("MovementPad", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -311,14 +267,14 @@ public partial class @InputData: IInputActionCollection2, IDisposable
     private List<IHeroActions> m_HeroActionsCallbackInterfaces = new List<IHeroActions>();
     private readonly InputAction m_Hero_MovementX;
     private readonly InputAction m_Hero_MovementY;
-    private readonly InputAction m_Hero_MovementTest;
+    private readonly InputAction m_Hero_MovementPad;
     public struct HeroActions
     {
         private @InputData m_Wrapper;
         public HeroActions(@InputData wrapper) { m_Wrapper = wrapper; }
         public InputAction @MovementX => m_Wrapper.m_Hero_MovementX;
         public InputAction @MovementY => m_Wrapper.m_Hero_MovementY;
-        public InputAction @MovementTest => m_Wrapper.m_Hero_MovementTest;
+        public InputAction @MovementPad => m_Wrapper.m_Hero_MovementPad;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -334,9 +290,9 @@ public partial class @InputData: IInputActionCollection2, IDisposable
             @MovementY.started += instance.OnMovementY;
             @MovementY.performed += instance.OnMovementY;
             @MovementY.canceled += instance.OnMovementY;
-            @MovementTest.started += instance.OnMovementTest;
-            @MovementTest.performed += instance.OnMovementTest;
-            @MovementTest.canceled += instance.OnMovementTest;
+            @MovementPad.started += instance.OnMovementPad;
+            @MovementPad.performed += instance.OnMovementPad;
+            @MovementPad.canceled += instance.OnMovementPad;
         }
 
         private void UnregisterCallbacks(IHeroActions instance)
@@ -347,9 +303,9 @@ public partial class @InputData: IInputActionCollection2, IDisposable
             @MovementY.started -= instance.OnMovementY;
             @MovementY.performed -= instance.OnMovementY;
             @MovementY.canceled -= instance.OnMovementY;
-            @MovementTest.started -= instance.OnMovementTest;
-            @MovementTest.performed -= instance.OnMovementTest;
-            @MovementTest.canceled -= instance.OnMovementTest;
+            @MovementPad.started -= instance.OnMovementPad;
+            @MovementPad.performed -= instance.OnMovementPad;
+            @MovementPad.canceled -= instance.OnMovementPad;
         }
 
         public void RemoveCallbacks(IHeroActions instance)
@@ -380,6 +336,6 @@ public partial class @InputData: IInputActionCollection2, IDisposable
     {
         void OnMovementX(InputAction.CallbackContext context);
         void OnMovementY(InputAction.CallbackContext context);
-        void OnMovementTest(InputAction.CallbackContext context);
+        void OnMovementPad(InputAction.CallbackContext context);
     }
 }

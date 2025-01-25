@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MovementTest",
+                    "name": "MovementPad",
                     "type": "PassThrough",
                     "id": "efa77db0-51ea-48da-83ac-00f1a2b3feb4",
                     "expectedControlType": "Vector2",
@@ -68,17 +68,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "negative",
-                    "id": "4bdb7fa8-c1d6-4863-8805-e57a836ab1fb",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "InputController",
-                    "action": "MovementX",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "positive",
                     "id": "2036fc2a-9307-4716-b2be-217a40a6d85c",
                     "path": "<Keyboard>/d",
@@ -93,17 +82,6 @@
                     "name": "positive",
                     "id": "3df732a3-af3e-4fef-9ef4-47428599ce62",
                     "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "InputController",
-                    "action": "MovementX",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "eba002d5-c9b8-4d71-bce5-483f8b9127a7",
-                    "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "InputController",
@@ -145,17 +123,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "negative",
-                    "id": "90259bc7-9403-4ccd-87f0-d6119c1cb594",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "InputController",
-                    "action": "MovementY",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "positive",
                     "id": "93f74fc4-2b51-448e-9a51-1f502df840b1",
                     "path": "<Keyboard>/w",
@@ -178,24 +145,13 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
-                    "id": "efbe495c-186e-47c9-8547-63961682b2de",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "InputController",
-                    "action": "MovementY",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "Axis",
                     "id": "562b878b-45c4-43e5-b486-fa413751586d",
                     "path": "TwoModifiers",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MovementTest",
+                    "action": "MovementPad",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -206,7 +162,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "InputController",
-                    "action": "MovementTest",
+                    "action": "MovementPad",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
