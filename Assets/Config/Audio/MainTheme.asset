@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9650b527fcd94254dadb2f126274607e, type: 3}
-  m_Name: TestLoop2
+  m_Name: MainTheme
   m_EditorClassIdentifier: 
-  volume: 0.25
+  volume: 1
   pitch: 1
-  TypeName: 1
-  clip: {fileID: 8300000, guid: 30d44300e43dd4edea537b9552750af0, type: 3}
+  TypeName: 0
+  clip: {fileID: 8300000, guid: cffa4d5ca2e86f3faaa125d0b8dc7673, type: 3}

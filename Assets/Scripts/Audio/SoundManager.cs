@@ -5,14 +5,15 @@ public static class AudioType
 {
     public enum SFX
     {
-        Jump,
-        Footsteps,
+        TestJump,
+        TestFootsteps,
     }
 
     public enum Loop
     {
-        PeacefulMusic,
-        ActionMusic,
+        MainTheme,
+        TestLoop1,
+        TestLoop2,
     }
 }
 
