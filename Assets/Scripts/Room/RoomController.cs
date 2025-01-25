@@ -49,11 +49,13 @@ namespace ggj25
             int y = 0;
             int width = Mathf.FloorToInt(_dust.sprite.texture.width/(float)iterations*2);
             int height = Mathf.FloorToInt(_dust.sprite.texture.height/(float)iterations*2);
-            for (int i = 0; i < iterations * 0.5f-1; i++)
+            int pixelColored = 0;
+            for (int i = 0; i < iterations * 0.5f; i++)
             {
-                for (int j = 0; j < iterations * 0.5f-1; j++)
+                y = 0;
+                for (int j = 0; j < iterations * 0.5f; j++)
                 {
-                    CalculateCleaningRate(x, y, width, height);
+                    pixelColored += CalculateCleaningRate(x, y, width, height);
                     y += height;
 
                 }
@@ -61,9 +63,10 @@ namespace ggj25
                 x += width;
                 yield return 0;
             }
+            Signals.Get<OnRoomCleaningRateChanged>().Dispatch(pixelColored / (float)_pixelSize);
         }
 
-        private void CalculateCleaningRate(int x, int y, int width, int height)
+        private int CalculateCleaningRate(int x, int y, int width, int height)
         {
             var pixels = _dust.sprite.texture.GetPixels(x, y, width, height);
             var pixelColored = 0;
@@ -75,7 +78,7 @@ namespace ggj25
                 }
             }
 
-            Signals.Get<OnRoomCleaningRateChanged>().Dispatch(pixelColored / (float)_pixelSize);
+            return pixelColored;
         }
     }
 }

@@ -6,6 +6,7 @@ public class ShieldController : MonoBehaviour
     public static ShieldController Instance { get; private set; }
 
     [SerializeField] private Transform shield; // Referencia al jugador (personaje principal)
+    [SerializeField] private float shieldDistance = 1.5f;
     private HeroController _heroController;
 
     private void Awake()
@@ -34,8 +35,8 @@ public class ShieldController : MonoBehaviour
 
         // Calcula la nueva posici�n del escudo en base al �ngulo y la distancia
         Vector3 shieldPosition = transform.position + new Vector3(
-            Mathf.Cos(angle * Mathf.Deg2Rad) * _heroController.Config.ShieldDistance,
-            Mathf.Sin(angle * Mathf.Deg2Rad) * _heroController.Config.ShieldDistance,
+            Mathf.Cos(angle * Mathf.Deg2Rad) * _heroController?.Config?.ShieldDistance ?? shieldDistance,
+            Mathf.Sin(angle * Mathf.Deg2Rad) * _heroController?.Config?.ShieldDistance ?? shieldDistance,
             0
         );
         // Actualiza la posici�n del escudo
