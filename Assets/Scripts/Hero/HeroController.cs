@@ -9,12 +9,9 @@ namespace ggj25
         
         private HeroInput _heroInput;
 
-        private Rigidbody2D _rigidbody2D;
-        
         private void Start()
         {
             _heroInput = GetComponent<HeroInput>();
-            _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         private void LateUpdate()
