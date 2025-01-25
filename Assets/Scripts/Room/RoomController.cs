@@ -47,6 +47,7 @@ namespace ggj25
             _pixelSize = _dust.sprite.texture.GetPixels().Length;
 
             _doors = GetComponentsInChildren<DoorController>().ToList();
+            _cleaningEffect.Stop();
         }
 
         private void Update()
@@ -121,8 +122,9 @@ namespace ggj25
             _dust.gameObject.SetActive(false);
             _doors.ForEach(door => door.OpenDoor());
             _walldust.gameObject.SetActive(false);
-            _isCompleted = true;
+            IsCompleted = true;
             _cleaningEffect.gameObject.SetActive(true);
+            _cleaningEffect.Stop();
             _cleaningEffect.Play();
         }
     }

@@ -15,10 +15,11 @@ namespace ggj25
             // Detectar colisión con layers específicas
             int collisionLayer = collision.gameObject.layer;
 
+            HitInShield();
+            
             if (collisionLayer == LAYER_SPIKE)
-            {
-                Debug.Log("Escudo bloqueó un proyectil: " + collision.gameObject.name);
-                Destroy(collision.gameObject); // Destruir proyectil al impactar
+            { 
+                DestroyProjectile(collision.gameObject);
             }
         }
 
@@ -31,7 +32,7 @@ namespace ggj25
             
             if (otherLayer == LAYER_SPIKE)
             {
-                DestroyProjectile(other);
+                DestroyProjectile(other.gameObject);
             }
         }
 
@@ -46,11 +47,11 @@ namespace ggj25
             _shieldHitEffect.Play();
         }
 
-        private static void DestroyProjectile(Collider2D other)
+        private static void DestroyProjectile(GameObject otherGameObject)
         {
             
-            Debug.Log("Escudo bloqueó un proyectil (Trigger): " + other.gameObject.name);
-            Destroy(other.gameObject); // Destruir proyectil al impactar
+            Debug.Log("Escudo bloqueó un proyectil (Trigger): " + otherGameObject.name);
+            Destroy(otherGameObject.gameObject); // Destruir proyectil al impactar
             
             //De momento dejo esta cancion para empezar
             SoundManager.Instance.PlaySFX(AudioType.SFX.ProjectileDestroyed);
