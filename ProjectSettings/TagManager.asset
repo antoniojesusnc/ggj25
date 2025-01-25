@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Shield
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -11,11 +13,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Dust
+  - Wall
+  - Spike
+  - Hero
+  - Shiled
   - 
   - 
   - 
@@ -38,6 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 3473789121
+    locked: 0
+  - name: Dust
+    uniqueID: 2118169429
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

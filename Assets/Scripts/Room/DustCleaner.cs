@@ -1,0 +1,106 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+namespace ggj25
+{
+    public class DustCleaner
+    {
+        private const string DUST_LAYER = "Dust";
+
+        private SpriteRenderer _dust;
+
+        private HeroController _hero;
+
+        private Vector3 _previousPosition;
+        private Color32[] _currentColor;
+
+        private Transform pos;
+
+        private Rect _dustRect;
+        private Texture2D _texture;
+        private List<Color> _colorsClean;
+        private readonly int _size;
+
+        public DustCleaner(SpriteRenderer dust)
+        {
+            _dust = dust;
+
+            var dustSprite = CloneSprite(_dust.sprite);
+            _dust.sprite = dustSprite;
+
+            _hero = GameObject.FindObjectOfType<HeroController>();
+            _previousPosition = _hero.transform.position;
+            _size = Mathf.FloorToInt(_hero.Config.CleanSize);
+            
+            CalculateDustRect();
+            InitCleanColors();
+        }
+
+        private void InitCleanColors()
+        {
+            int sizeX = Mathf.FloorToInt(_hero.Config.CleanSize);
+            int sizeY = Mathf.FloorToInt(_hero.Config.CleanSize);
+            Color colorClear = Color.clear;
+            _colorsClean = new List<Color>(sizeX * sizeY);
+            for (int i = 0; i < sizeX * sizeY; i++)
+            {
+                _colorsClean.Add(colorClear);
+            }
+        }
+
+        private void CalculateDustRect()
+        {
+            _dustRect = new Rect(
+                _dust.transform.position.x-_dust.sprite.textureRect.width * 0.5f / _dust.sprite.pixelsPerUnit, 
+                _dust.transform.position.y-_dust.sprite.textureRect.height * 0.5f / _dust.sprite.pixelsPerUnit, 
+                                 _dust.sprite.textureRect.width / _dust.sprite.pixelsPerUnit,
+                                 _dust.sprite.textureRect.height / _dust.sprite.pixelsPerUnit);
+        }
+        
+        public void TryClear()
+        {
+            var position = _hero.transform.position;
+           
+            var percentageX = (position.x - _dustRect.xMin) / (_dustRect.xMax -_dustRect.xMin);
+            var percentageY = (position.y - _dustRect.yMin) / (_dustRect.yMax - _dustRect.yMin);
+
+            var pixelX = Mathf.RoundToInt(percentageX * _dust.sprite.textureRect.width);
+            var pixelY = Mathf.RoundToInt(percentageY * _dust.sprite.textureRect.height);
+
+            
+            pixelX -= Mathf.FloorToInt(_size * 0.5f);
+            pixelY -= Mathf.FloorToInt(_size * 0.5f);
+
+            pixelX = Mathf.Clamp(pixelX, 0,
+                                 (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(_size));
+            pixelY = Mathf.Clamp(pixelY, 0,
+                                 (int)_dust.sprite.textureRect.height - Mathf.FloorToInt(_size));
+            _dust.sprite.texture.SetPixels(
+                pixelX,
+                pixelY,
+                _size,
+                _size,
+                _colorsClean.ToArray());
+            _dust.sprite.texture.Apply();
+        }
+
+        private Sprite CloneSprite(Sprite source)
+        {
+// Create a copy of the texture by reading and applying the raw texture data.
+            Texture2D textureCloned = CloneTexture(source.texture);
+            return Sprite.Create(textureCloned, new Rect(0,0, textureCloned.width, textureCloned.height), new Vector2(0.5f, 0.5f), source.pixelsPerUnit);
+        }
+
+        private Texture2D CloneTexture(Texture2D source)
+        {
+// Create a copy of the texture by reading and applying the raw texture data.
+            Texture2D texCopy = new Texture2D(source.width, source.height, source.format, source.mipmapCount > 1);
+            var newData = _dust.sprite.texture.GetRawTextureData();
+// Load the original texture data
+            texCopy.LoadRawTextureData(newData);
+            texCopy.Apply();
+            return texCopy;
+        }
+    }
+}

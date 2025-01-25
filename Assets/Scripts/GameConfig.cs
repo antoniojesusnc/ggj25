@@ -1,0 +1,11 @@
+using UnityEngine;
+
+namespace ggj25
+{
+    [CreateAssetMenu(fileName = "GameConfig", menuName = "GGJ25/GameConfig", order = 1)]
+    public class GameConfig : ScriptableObject
+    {
+        [field: SerializeField]
+        public float CleanSuccessRate { get; private set; }
+    }
+}
