@@ -24,9 +24,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MovementPad",
+                    "name": "MovementPadMovement",
                     "type": "PassThrough",
                     "id": "efa77db0-51ea-48da-83ac-00f1a2b3feb4",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MovementPadShield",
+                    "type": "PassThrough",
+                    "id": "4f7d584c-7376-49db-9d17-4fe2fd9c5787",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -151,7 +160,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MovementPad",
+                    "action": "MovementPadMovement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -162,8 +171,30 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "InputController",
-                    "action": "MovementPad",
+                    "action": "MovementPadMovement",
                     "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cfa73154-b662-42f1-8dbe-f481425e0788",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "InputController",
+                    "action": "MovementPadShield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Axis",
+                    "id": "70171bee-72f7-4547-886f-7ff02a408c10",
+                    "path": "TwoModifiers",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MovementPadShield",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 }
             ]

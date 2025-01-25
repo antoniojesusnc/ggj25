@@ -8,6 +8,7 @@ public class ShieldController : MonoBehaviour
     [SerializeField] private Transform shield; // Referencia al jugador (personaje principal)
     [SerializeField] private float shieldDistance = 1.5f;
     private HeroController _heroController;
+    private HeroInput _heroInput;
 
     private void Awake()
     {
@@ -20,15 +21,20 @@ public class ShieldController : MonoBehaviour
         Instance = this;
 
         _heroController = GetComponentInParent<HeroController>();
+        _heroInput = GetComponentInParent<HeroInput>();
     }
 
     void Update()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Aseg�rate de que est� en 2D (sin profundidad)
-
+        Vector3 pointPosition = GetMousePosition();
+        if (_heroInput != null)
+        {
+            pointPosition = _heroInput.ShieldPosition;
+        }
+        
+        
         // Calcula la direcci�n desde la posici�n del jugador hacia el mouse
-        Vector3 direction = (mousePosition - transform.position).normalized;
+        Vector3 direction = (pointPosition - transform.position).normalized;
 
         // Calcula el �ngulo de rotaci�n basado en la direcci�n
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -44,6 +50,14 @@ public class ShieldController : MonoBehaviour
         // Aplica la rotaci�n para que el escudo apunte hacia el rat�n
         shield.SetPositionAndRotation(shieldPosition, Quaternion.Euler(0, 0, angle));
 
+    }
+
+    private Vector3 GetMousePosition()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Aseg�rate de que est� en 2D (sin profundidad)
+
+        return mousePosition;
     }
 
     //player collider

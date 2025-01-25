@@ -46,9 +46,18 @@ public partial class @InputData: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""MovementPad"",
+                    ""name"": ""MovementPadMovement"",
                     ""type"": ""PassThrough"",
                     ""id"": ""efa77db0-51ea-48da-83ac-00f1a2b3feb4"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MovementPadShield"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4f7d584c-7376-49db-9d17-4fe2fd9c5787"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -173,7 +182,7 @@ public partial class @InputData: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MovementPad"",
+                    ""action"": ""MovementPadMovement"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -184,8 +193,30 @@ public partial class @InputData: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""InputController"",
-                    ""action"": ""MovementPad"",
+                    ""action"": ""MovementPadMovement"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfa73154-b662-42f1-8dbe-f481425e0788"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""InputController"",
+                    ""action"": ""MovementPadShield"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Axis"",
+                    ""id"": ""70171bee-72f7-4547-886f-7ff02a408c10"",
+                    ""path"": ""TwoModifiers"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MovementPadShield"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 }
             ]
@@ -203,7 +234,8 @@ public partial class @InputData: IInputActionCollection2, IDisposable
         m_Hero = asset.FindActionMap("Hero", throwIfNotFound: true);
         m_Hero_MovementX = m_Hero.FindAction("MovementX", throwIfNotFound: true);
         m_Hero_MovementY = m_Hero.FindAction("MovementY", throwIfNotFound: true);
-        m_Hero_MovementPad = m_Hero.FindAction("MovementPad", throwIfNotFound: true);
+        m_Hero_MovementPadMovement = m_Hero.FindAction("MovementPadMovement", throwIfNotFound: true);
+        m_Hero_MovementPadShield = m_Hero.FindAction("MovementPadShield", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -267,14 +299,16 @@ public partial class @InputData: IInputActionCollection2, IDisposable
     private List<IHeroActions> m_HeroActionsCallbackInterfaces = new List<IHeroActions>();
     private readonly InputAction m_Hero_MovementX;
     private readonly InputAction m_Hero_MovementY;
-    private readonly InputAction m_Hero_MovementPad;
+    private readonly InputAction m_Hero_MovementPadMovement;
+    private readonly InputAction m_Hero_MovementPadShield;
     public struct HeroActions
     {
         private @InputData m_Wrapper;
         public HeroActions(@InputData wrapper) { m_Wrapper = wrapper; }
         public InputAction @MovementX => m_Wrapper.m_Hero_MovementX;
         public InputAction @MovementY => m_Wrapper.m_Hero_MovementY;
-        public InputAction @MovementPad => m_Wrapper.m_Hero_MovementPad;
+        public InputAction @MovementPadMovement => m_Wrapper.m_Hero_MovementPadMovement;
+        public InputAction @MovementPadShield => m_Wrapper.m_Hero_MovementPadShield;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -290,9 +324,12 @@ public partial class @InputData: IInputActionCollection2, IDisposable
             @MovementY.started += instance.OnMovementY;
             @MovementY.performed += instance.OnMovementY;
             @MovementY.canceled += instance.OnMovementY;
-            @MovementPad.started += instance.OnMovementPad;
-            @MovementPad.performed += instance.OnMovementPad;
-            @MovementPad.canceled += instance.OnMovementPad;
+            @MovementPadMovement.started += instance.OnMovementPadMovement;
+            @MovementPadMovement.performed += instance.OnMovementPadMovement;
+            @MovementPadMovement.canceled += instance.OnMovementPadMovement;
+            @MovementPadShield.started += instance.OnMovementPadShield;
+            @MovementPadShield.performed += instance.OnMovementPadShield;
+            @MovementPadShield.canceled += instance.OnMovementPadShield;
         }
 
         private void UnregisterCallbacks(IHeroActions instance)
@@ -303,9 +340,12 @@ public partial class @InputData: IInputActionCollection2, IDisposable
             @MovementY.started -= instance.OnMovementY;
             @MovementY.performed -= instance.OnMovementY;
             @MovementY.canceled -= instance.OnMovementY;
-            @MovementPad.started -= instance.OnMovementPad;
-            @MovementPad.performed -= instance.OnMovementPad;
-            @MovementPad.canceled -= instance.OnMovementPad;
+            @MovementPadMovement.started -= instance.OnMovementPadMovement;
+            @MovementPadMovement.performed -= instance.OnMovementPadMovement;
+            @MovementPadMovement.canceled -= instance.OnMovementPadMovement;
+            @MovementPadShield.started -= instance.OnMovementPadShield;
+            @MovementPadShield.performed -= instance.OnMovementPadShield;
+            @MovementPadShield.canceled -= instance.OnMovementPadShield;
         }
 
         public void RemoveCallbacks(IHeroActions instance)
@@ -336,6 +376,7 @@ public partial class @InputData: IInputActionCollection2, IDisposable
     {
         void OnMovementX(InputAction.CallbackContext context);
         void OnMovementY(InputAction.CallbackContext context);
-        void OnMovementPad(InputAction.CallbackContext context);
+        void OnMovementPadMovement(InputAction.CallbackContext context);
+        void OnMovementPadShield(InputAction.CallbackContext context);
     }
 }
