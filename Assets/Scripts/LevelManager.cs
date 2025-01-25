@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ggj25
@@ -18,6 +17,7 @@ namespace ggj25
         private int _completedRooms = 0;
         private bool _gameWon = false;
 
+        public DustCleaner DustCleaner => _currentRoom?.DustCleaner;
 
         public void Awake()
         { 
@@ -43,6 +43,9 @@ namespace ggj25
                 _hero.transform.position.y,
                 1,
                 1);
+            
+            _rooms.ForEach(room => room.Init());
+            
             foreach (var roomController in _rooms)
             {
                 if (roomController.RoomRect.Overlaps(_heroRect))

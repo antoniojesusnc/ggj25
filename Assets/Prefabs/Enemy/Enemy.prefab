@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7509bee9444fa4d42afc76dc986ddd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyConfig: {fileID: 0}
+  _enemyConfig: {fileID: 11400000, guid: d5134d41dfaced44b991377211f95df4, type: 2}
 --- !u!50 &6178457455801176209
 Rigidbody2D:
   serializedVersion: 4

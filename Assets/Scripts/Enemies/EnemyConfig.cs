@@ -13,6 +13,12 @@ namespace ggj25
         public float JumpInterval { get; private set; }
         [field: SerializeField]
         public float Friction { get; private set; }
+        
+        [field: SerializeField]
+        public int AreaToPaint { get; private set; }
+        
+        [field: SerializeField]
+        public Color ColorToPaint { get; private set; }
         [field: SerializeField]
         public float SpeedToConsiderStopped { get; private set; }
     }

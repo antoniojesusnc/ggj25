@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -48,6 +47,9 @@ namespace ggj25
 
         private void WaitForJump()
         {
+            GameManager.Instance.LevelManager.DustCleaner.PaintOther(transform.position, 
+                                                                     _enemyConfig.AreaToPaint, 
+                                                                     _enemyConfig.ColorToPaint);
             _timeStamp = _enemyConfig.JumpInterval;
             _jumping = false;
         }

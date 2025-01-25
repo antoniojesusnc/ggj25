@@ -385,6 +385,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _areaToPaint
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _cleanOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _destroyOnHit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -792,6 +804,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _areaToPaint
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _cleanOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _destroyOnHit
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -856,6 +880,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7008634877496286234, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _areaToPaint
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _cleanOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _destroyOnHit
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -994,6 +1030,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7008634877496286234, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _areaToPaint
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _cleanOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045390134862553150, guid: 9458b514defb1324d97342ddc7db2572, type: 3}
+      propertyPath: _destroyOnHit
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

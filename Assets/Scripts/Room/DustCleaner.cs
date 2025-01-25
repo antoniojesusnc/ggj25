@@ -57,11 +57,24 @@ namespace ggj25
                                  _dust.sprite.textureRect.width / _dust.sprite.pixelsPerUnit,
                                  _dust.sprite.textureRect.height / _dust.sprite.pixelsPerUnit);
         }
-        
-        public void TryClear()
+
+        public void CleanPlayer(Vector3 playerPosition)
         {
-            var position = _hero.transform.position;
-           
+            PaintPosition(playerPosition, _size, _colorsClean);
+        }
+
+        public void PaintOther(Vector3 position, int cleanSize, Color colorToPaint)
+        {
+            List<Color> color = new List<Color>();
+            for (int i = 0; i < cleanSize*cleanSize; i++)
+            {
+                color.Add(colorToPaint);
+            }
+            PaintPosition(position, cleanSize, color);
+        }
+        
+        private void PaintPosition(Vector3 position, int size, List<Color> color)
+        {
             var percentageX = (position.x - _dustRect.xMin) / (_dustRect.xMax -_dustRect.xMin);
             var percentageY = (position.y - _dustRect.yMin) / (_dustRect.yMax - _dustRect.yMin);
 
@@ -69,19 +82,19 @@ namespace ggj25
             var pixelY = Mathf.RoundToInt(percentageY * _dust.sprite.textureRect.height);
 
             
-            pixelX -= Mathf.FloorToInt(_size * 0.5f);
-            pixelY -= Mathf.FloorToInt(_size * 0.5f);
+            pixelX -= Mathf.FloorToInt(size * 0.5f);
+            pixelY -= Mathf.FloorToInt(size * 0.5f);
 
             pixelX = Mathf.Clamp(pixelX, 0,
-                                 (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(_size));
+                                 (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(size));
             pixelY = Mathf.Clamp(pixelY, 0,
-                                 (int)_dust.sprite.textureRect.height - Mathf.FloorToInt(_size));
+                                 (int)_dust.sprite.textureRect.height - Mathf.FloorToInt(size));
             _dust.sprite.texture.SetPixels(
                 pixelX,
                 pixelY,
-                _size,
-                _size,
-                _colorsClean.ToArray());
+                size,
+                size,
+                color.ToArray());
             _dust.sprite.texture.Apply();
         }
 

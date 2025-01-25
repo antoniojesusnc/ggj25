@@ -5,7 +5,20 @@ namespace ggj25
 {
     public class Spike : MonoBehaviour
     {
-        [SerializeField] public bool _destroyOnHit;
+        [SerializeField] public bool _cleanOnAwake;
+        [SerializeField] public int _areaToPaint;
+        
+        [SerializeField] public bool _destroyOnHit = true;
+
+        private void Start()
+        {
+            if (_cleanOnAwake)
+            {
+                GameManager.Instance.LevelManager.DustCleaner.PaintOther(
+                    transform.position, _areaToPaint, Color.clear);
+            }
+        }
+
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (!_destroyOnHit)

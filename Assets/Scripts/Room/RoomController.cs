@@ -24,7 +24,7 @@ namespace ggj25
 
         private Vector3 _previousPosition;
         private Color32[] _currentColor;
-        private DustCleaner _dustCleaner;
+        public DustCleaner DustCleaner { get; private set; }
         private int _pixelSize;
 
         private float _timeStamp;
@@ -37,12 +37,13 @@ namespace ggj25
             MainArt.sprite.textureRect.width / MainArt.sprite.pixelsPerUnit * MainArt.transform.lossyScale.x,
             MainArt.sprite.textureRect.height / MainArt.sprite.pixelsPerUnit * MainArt.transform.lossyScale.y);  
 
-        private void Start()
+        
+        public void Init()
         {
             _hero = GameObject.FindObjectOfType<HeroController>();
             _previousPosition = _hero.transform.position;
 
-            _dustCleaner = new DustCleaner(_dust);
+            DustCleaner = new DustCleaner(_dust);
 
             _pixelSize = _dust.sprite.texture.GetPixels().Length;
 
@@ -57,7 +58,7 @@ namespace ggj25
                 return;
             }
             
-            _dustCleaner.TryClear();
+            DustCleaner.CleanPlayer(_hero.transform.position);
 
             _timeStamp -= Time.deltaTime;
             if (_timeStamp <= 0)
