@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class SoundTest : MonoBehaviour
@@ -7,28 +8,33 @@ public class SoundTest : MonoBehaviour
         // SFX Tests
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SoundManager.Instance.PlaySFX("Jump");
+            SoundManager.Instance.PlaySFX(AudioType.SFX.Jump);
+            Debug.Log("Playing: Jump SFX");
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            SoundManager.Instance.PlaySFX("Footsteps");
+            SoundManager.Instance.PlaySFX(AudioType.SFX.Footsteps);
+            Debug.Log("Playing: Footsteps SFX");
         }
 
         // Loop Tests
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            SoundManager.Instance.PlayLoop("Loop1");
+            SoundManager.Instance.PlayLoop(AudioType.Loop.PeacefulMusic);
+            Debug.Log("Playing: Peaceful Music Loop");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SoundManager.Instance.PlayLoop("Loop2");
+            SoundManager.Instance.PlayLoop(AudioType.Loop.ActionMusic);
+            Debug.Log("Playing: Action Music Loop");
         }
-
+        
         if (Input.GetKeyDown(KeyCode.S))
         {
-            SoundManager.Instance.StopLoop();
+            SoundManager.Instance.StopAllSounds();
+            Debug.Log("Playing: Action Music Loop");
         }
     }
 }
