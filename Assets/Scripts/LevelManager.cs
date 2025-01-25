@@ -24,9 +24,6 @@ namespace ggj25
             _rooms = GameObject.FindObjectsOfType<RoomController>().ToList();
             _hero = GameObject.FindObjectOfType<HeroController>();
             
-            //De momento dejo esta cancion para empezar
-            SoundManager.Instance.PlayLoop(AudioType.Loop.MainTheme);
-            
             CheckPlayerRoom();
             _timestamp = PLAYER_ROOM_CHECK_TIME;
         }

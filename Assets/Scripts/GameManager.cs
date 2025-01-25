@@ -17,6 +17,9 @@ namespace ggj25
         {
             SceneManager.LoadScene(0);
             IsInGame = false;
+            
+            //De momento dejo esta cancion para empezar
+            SoundManager.Instance.PlayLoop(AudioType.Loop.MainTheme);
         }
 
         public void ToGame()
