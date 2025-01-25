@@ -11,6 +11,8 @@ namespace ggj25
         
         private HeroInput _heroInput;
 
+        private const int LAYER_SPIKE = 8;
+
         private void Start()
         {
             _heroInput = GetComponent<HeroInput>();
@@ -24,6 +26,18 @@ namespace ggj25
             if (!_heroInput.IsPressed)
             {
                 _heroInput.DeductMomentum(Config.FrictionRate);
+            }
+        }
+
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            // Detectar colisión con layers específicas
+            int collisionLayer = collision.gameObject.layer;
+
+            if (collisionLayer == LAYER_SPIKE)
+            {
+                Debug.Log("muelto pol: " + collision.gameObject.name);
+                GameManager.Instance.GameOver(false);
             }
         }
     }

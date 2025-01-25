@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpikeSpawner : MonoBehaviour
 {
-    [Header("Configuración del disparador")]
+    [Header("Spawner configurator")]
     [SerializeField] private GameObject spikePrefab; // Prefab del pincho
     [SerializeField] private Transform shootPoint;   // Punto de disparo
     [SerializeField] private float shootFrequency = 2f; // Frecuencia de disparo (en segundos)

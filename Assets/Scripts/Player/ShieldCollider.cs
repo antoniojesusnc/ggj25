@@ -6,21 +6,27 @@ namespace ggj25
 {
     public class ShieldCollider : MonoBehaviour
     {
+        // Números de las layers
+        private const int LAYER_SPIKE = 8;
+
         void OnCollisionEnter2D(Collision2D collision)
         {
-            // Escudo detecta colisión con proyectiles
-            if (collision.gameObject.CompareTag("Projectile"))
+            // Detectar colisión con layers específicas
+            int collisionLayer = collision.gameObject.layer;
+
+            if (collisionLayer == LAYER_SPIKE)
             {
-                Debug.Log("Escudo bloqueó el proyectil: " + collision.gameObject.name);
+                Debug.Log("Escudo bloqueó un proyectil: " + collision.gameObject.name);
                 Destroy(collision.gameObject); // Destruir proyectil al impactar
             }
         }
 
-        // Detectar triggers (si el escudo está configurado como Trigger)
         void OnTriggerEnter2D(Collider2D other)
         {
-            // Escudo detecta colisión con proyectiles
-            if (other.gameObject.CompareTag("Projectile"))
+            // Detectar colisión con layers específicas
+            int otherLayer = other.gameObject.layer;
+
+            if (otherLayer == LAYER_SPIKE)
             {
                 Debug.Log("Escudo bloqueó un proyectil (Trigger): " + other.gameObject.name);
                 Destroy(other.gameObject); // Destruir proyectil al impactar

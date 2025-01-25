@@ -47,7 +47,7 @@ namespace ggj25
         public void GameOver(bool isWin)
         {
             Time.timeScale = 0;
-            FindObjectOfType<UIGameOverView>().Open(isWin);
+            FindObjectOfType<UIGameOverView>(true).Open(isWin);
         }
 
         public void ExitGame()
