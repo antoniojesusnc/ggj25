@@ -31,6 +31,7 @@ namespace ggj25
 
         public void ToMainMenu()
         {
+            Time.timeScale = 1;
             _mainMusicTimer?.Kill();
             SceneManager.LoadScene(0);
             IsInGame = false;
