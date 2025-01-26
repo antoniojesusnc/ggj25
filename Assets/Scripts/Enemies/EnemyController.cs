@@ -14,22 +14,26 @@ namespace ggj25
         private bool _jumping;
 
         private Rigidbody2D _rigidbody2D;
-        private RoomController _roomController;
+
+        private RoomController _room;
 
         private void Start()
         {
             WaitForJump();
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _roomController = gameObject.GetComponentInParent<RoomController>();
+            _room = GetComponentInParent<RoomController>();
         }
 
         private void Update()
         {
-            if (!_roomController.IsActive)
+            if (_room == null)
             {
                 return;
             }
-            
+            if (!_room.IsActive)
+            {
+                return;
+            }
             if (_jumping)
             {
                 CheckJumpStop();
