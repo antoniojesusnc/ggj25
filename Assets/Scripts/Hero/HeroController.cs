@@ -92,8 +92,11 @@ namespace ggj25
 
         public void DeductLives()
         {
-            CurrentLives--;
-            Signals.Get<OnCurrentLivesChangedEvent>().Dispatch(CurrentLives);
+            if (!Config.Inmortal)
+            {
+                CurrentLives--;
+                Signals.Get<OnCurrentLivesChangedEvent>().Dispatch(CurrentLives);
+            }
         }
     }
 }

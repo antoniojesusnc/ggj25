@@ -52,6 +52,7 @@ namespace ggj25
         {
             if (_rigidbody2D.velocity.magnitude < _enemyConfig.SpeedToConsiderStopped)
             {
+                Paint();
                 WaitForJump();
                 _rigidbody2D.velocity = Vector2.zero;
             }
@@ -59,11 +60,15 @@ namespace ggj25
 
         private void WaitForJump()
         {
+            _timeStamp = _enemyConfig.JumpInterval;
+            _jumping = false;
+        }
+
+        private void Paint()
+        {
             GameManager.Instance.LevelManager.DustCleaner.PaintOther(transform.position, 
                                                                      _enemyConfig.AreaToPaint, 
                                                                      _enemyConfig.ColorToPaint);
-            _timeStamp = _enemyConfig.JumpInterval;
-            _jumping = false;
         }
 
         private void Jump()

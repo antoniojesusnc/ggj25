@@ -22,5 +22,9 @@ namespace ggj25
         [field: Header("Live")]
         [field: SerializeField]
         public int Lives { get; private set; }
+        
+        [field: Header("DEBUG")]
+        [field: SerializeField]
+        public bool Inmortal { get; private set; }
     }
 }

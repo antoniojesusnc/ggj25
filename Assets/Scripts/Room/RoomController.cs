@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using deVoid.Utils;
+using Unity.Collections;
 using UnityEngine;
 
 namespace ggj25
@@ -17,6 +18,7 @@ namespace ggj25
         [SerializeField] private ParticleSystem _cleaningEffect;
         [field: SerializeField] public Transform CheckPoint { get; private set; }
         
+        [SerializeField, ReadOnly]
         private List<DoorController> _doors;
         
         public float CleanFactor { get; private set; }
