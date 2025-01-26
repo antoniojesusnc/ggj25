@@ -1314,11 +1314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 448328650305015268, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 577279276769628581, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 848774517983648762, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
       propertyPath: m_Points.Array.data[0].x
@@ -1749,7 +1749,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1313471934530789810, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2567544660291495433, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
       insertIndex: -1
