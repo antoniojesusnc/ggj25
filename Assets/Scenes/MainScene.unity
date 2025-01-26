@@ -231,7 +231,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loops:
   - {fileID: 11400000, guid: d6833644fade7cda2b27cde13002556f, type: 2}
-  sfxDatabase: []
+  sfxDatabase:
+  - {fileID: 11400000, guid: badf5532997493a4db47c3577948b7f6, type: 2}
+  - {fileID: 11400000, guid: 7cf3c42895ec0eb43adc6419427eeda2, type: 2}
+  - {fileID: 11400000, guid: bedad02aa40ae094e8bb5436c91b1f5a, type: 2}
 --- !u!4 &167725443
 Transform:
   m_ObjectHideFlags: 0

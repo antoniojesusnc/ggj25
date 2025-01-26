@@ -16,21 +16,25 @@ namespace ggj25
 
         public void OnClickInPlay()
         {
+            SoundManager.Instance.PlaySFX(AudioType.SFX.Click);
             GameManager.Instance.ToGame();
         }
 
         public void OnClickInCredits()
         {
+            SoundManager.Instance.PlaySFX(AudioType.SFX.Click);
             _credits.gameObject.SetActive(true);
         }
         
         public void OnClickInCloseCredits()
         {
+            SoundManager.Instance.PlaySFX(AudioType.SFX.Click);
             _credits.gameObject.SetActive(false);
         }
 
         public void OnClickInExit()
         {
+            SoundManager.Instance.PlaySFX(AudioType.SFX.Click);
             GameManager.Instance.ExitGame();
         }
     }

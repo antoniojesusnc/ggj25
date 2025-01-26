@@ -8,7 +8,10 @@ public static class AudioType
         TestJump,
         TestFootsteps,
         ProjectileDestroyed,
-        HitInShield
+        HitInShield,
+        Click,
+
+        ShootSpike
     }
 
     public enum Loop
