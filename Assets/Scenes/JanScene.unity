@@ -1748,6 +1748,14 @@ PrefabInstance:
       propertyPath: _cleanOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8949999213546552982, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: m_text
+      value: Clean 90% of the room to advance
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949999213546552982, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1313471934530789810, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
