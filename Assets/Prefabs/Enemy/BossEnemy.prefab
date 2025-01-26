@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8366308456381397363}
   - component: {fileID: 766330012649244790}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6282853418677725337}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2582813692014843877}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 6178457455801176209}
   - component: {fileID: 2165455714114698005}
   - component: {fileID: 6548309421911396124}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BossEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,6 +362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaseEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5721120530075198947, guid: d4a47c681d3925c4a8747457baac336a, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5784263933675445808, guid: d4a47c681d3925c4a8747457baac336a, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -438,6 +442,10 @@ PrefabInstance:
     - target: {fileID: 5721120530075198947, guid: d4a47c681d3925c4a8747457baac336a, type: 3}
       propertyPath: m_Name
       value: BaseEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721120530075198947, guid: d4a47c681d3925c4a8747457baac336a, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5784263933675445808, guid: d4a47c681d3925c4a8747457baac336a, type: 3}
       propertyPath: m_Enabled

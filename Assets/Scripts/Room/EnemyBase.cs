@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ggj25
 {
@@ -42,9 +39,6 @@ namespace ggj25
                 {
                     rb.velocity = directionToHero * spikeSpeed;
                 }
-
-                // Opcional: destruye el pincho después de un tiempo para optimizar
-                Destroy(spike, 5f); // Elimina el pincho después de 5 segundos
             }
             else
             {
