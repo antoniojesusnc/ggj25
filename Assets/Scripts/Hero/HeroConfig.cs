@@ -18,5 +18,9 @@ namespace ggj25
         [field: Header("Cleaning")]
         [field: SerializeField]
         public float CleanSize { get; private set; }
+        
+        [field: Header("Live")]
+        [field: SerializeField]
+        public int Lives { get; private set; }
     }
 }

@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "dbd76ed996483d219c39d240f785b1790aa039ed"
     },
+    "com.pixeption.mck": {
+      "version": "https://github.com/pixeption/MobileConsoleKit.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b94a04b6da35429dfcec0d9c23ef9bdc5d16840a"
+    },
     "com.teamon.screenshooter": {
       "version": "https://github.com/Team-on/UnityScreenShooter.git",
       "depth": 0,

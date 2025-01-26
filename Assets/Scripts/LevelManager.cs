@@ -79,5 +79,10 @@ namespace ggj25
             return _currentRoom.CleanFactor >= GameManager.Instance.GameConfig.CleanSuccessRate 
                 && !_currentRoom.IsCompleted;
         }
+
+        public void Rewpawn()
+        {
+            _hero.transform.position = _currentRoom.CheckPoint.position;
+        }
     }
 }

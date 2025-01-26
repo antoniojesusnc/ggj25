@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace ggj25
@@ -10,17 +11,22 @@ namespace ggj25
         [field: SerializeField]
         public GameConfig GameConfig { get; private set; }
 
+        public bool IsGameOver { get; private set; }
         public bool IsInGame { get; private set; }
         public bool IsPlaying => Time.timeScale > 0;
         
         public LevelManager LevelManager { get; private set; }
 
         private Tween _mainMusicTimer;
-        
+        private InputData _input;
+
         private void Start()
         {
             SoundManager.Instance.StopLoop();
             SoundManager.Instance.PlayLoop(AudioType.Loop.MainTheme);
+
+            _input = new InputData();
+            _input.Enable();
         }
 
         public void ToMainMenu()
@@ -45,6 +51,7 @@ namespace ggj25
 
             Time.timeScale = 1;
             IsInGame = true;
+            IsGameOver = false;
         }
 
         private void OnPlayMainTheme(AudioSFX sfx, AudioClip clip)
@@ -73,8 +80,6 @@ namespace ggj25
 
         public void GameOver(bool isWin)
         {
-            _mainMusicTimer?.Kill();
-            SoundManager.Instance.StopLoop();
             Time.timeScale = 0;
 
             if (isWin)
@@ -86,9 +91,43 @@ namespace ggj25
                 SoundManager.Instance.PlayLoop(AudioType.Loop.GameOver);
             }
             
-            DOVirtual.DelayedCall(GameConfig.GameOverDelay, () => 
-                                      FindObjectOfType<UIGameOverView>(true).Open(isWin));
+            DOVirtual.DelayedCall(GameConfig.GameOverDelay, () => CheckGameOver(isWin));
         }
+
+        private void CheckGameOver(bool isWin)
+        {
+            if (isWin)
+            {
+                ShowGameOver(true);
+                return;
+            }
+            
+            var heroController = GameObject.FindObjectOfType<HeroController>();
+            heroController.DeductLives();
+            if (heroController.CurrentLives <= 0)
+            {
+                ShowGameOver(false);
+            }
+            else
+            {
+                Respawn(heroController);
+            }
+        }
+
+        private void Respawn(HeroController heroController)
+        {
+            Time.timeScale = 1;
+            LevelManager.Rewpawn();
+        }
+
+        private void ShowGameOver(bool isWin)
+        {
+            IsGameOver = true;
+            FindObjectOfType<UIGameOverView>(true).Open(isWin);
+            _mainMusicTimer?.Kill();
+            SoundManager.Instance.StopLoop();
+        }
+
 
         public void ExitGame()
         {
@@ -102,22 +141,66 @@ namespace ggj25
 
         private void Update()
         {
-            if (!Input.GetKeyDown(KeyCode.Escape))
+            if (!IsInGame)
             {
+                UpdateInMenu();
                 return;
             }
 
-            if (!IsInGame)
+            if (IsPlaying)
             {
-                ExitGame();
-            }
-            else if (IsPlaying)
-            {
-                PauseGame();
+                UpdateInGame();
             }
             else
             {
+                UpdateInPause();
+            }
+        }
+
+        private void UpdateInPause()
+        {
+            if (IsGameOver)
+            {
+                if (Input.GetKeyDown(KeyCode.Escape) || _input.UI.Exit.inProgress)
+                {
+                    ToMainMenu();
+                }
+                else if (_input.UI.Enter.inProgress || _input.UI.Pause.inProgress)
+                {
+                    ToGame();
+                }
+
+                return;
+            }
+            
+            if (Input.GetKeyDown(KeyCode.Escape) || _input.UI.Exit.inProgress)
+            {
+                ToMainMenu();
+            }
+            else if (_input.UI.Enter.inProgress)
+            {
                 ContinueGame();
+            }
+        }
+
+        private void UpdateInMenu()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ExitGame();
+            }
+
+            if (_input.UI.Pause.inProgress || _input.UI.Enter.inProgress)
+            {
+                ToGame();
+            }
+        }
+
+        private void UpdateInGame()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || _input.UI.Pause.inProgress)
+            {
+                PauseGame();
             }
         }
     }

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "com.marijnzwemmer.unity-toolbar-extender": "https://github.com/marijnz/unity-toolbar-extender.git",
+    "com.pixeption.mck": "https://github.com/pixeption/MobileConsoleKit.git",
     "com.teamon.screenshooter": "https://github.com/Team-on/UnityScreenShooter.git",
     "com.unity.cinemachine": "2.10.3",
     "com.unity.collab-proxy": "2.6.0",

@@ -39,6 +39,7 @@ Transform:
   - {fileID: 3450539547176071470}
   - {fileID: 3211220690970338520}
   - {fileID: 266210950085602527}
+  - {fileID: 2207632681720583947}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3625422216104139273
@@ -58,6 +59,7 @@ MonoBehaviour:
   _walldust: {fileID: 5180360593705290299}
   _roomLock: {fileID: 9161847665051776926}
   _cleaningEffect: {fileID: 7448503271693337338}
+  <CheckPoint>k__BackingField: {fileID: 2207632681720583947}
 --- !u!1 &1122291626184897009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1427,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &9000229383772189502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2207632681720583947}
+  m_Layer: 7
+  m_Name: CheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2207632681720583947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9000229383772189502}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -8.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7658631131272424247}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9084502932387065219
 GameObject:
   m_ObjectHideFlags: 0

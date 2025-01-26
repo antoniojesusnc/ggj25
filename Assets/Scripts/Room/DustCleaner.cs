@@ -94,47 +94,6 @@ namespace ggj25
             var colors = color;
 
             /*
-            var finalSize = size;
-
-            var remainingX = 0;
-            var remainingY = 0;
-            if (pixelX < 0)
-            {
-                remainingX = -pixelX;
-                pixelX = 0;
-                sizeX -= remainingX;
-            }else if (pixelX > (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(size))
-            {
-                remainingX = (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(size) - pixelX;
-                pixelX = (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(size);
-                sizeX -= remainingX;
-            }
-
-            if (pixelY < 0)
-            {
-                remainingY = -pixelY;
-                pixelY = 0;
-                sizeY -= remainingY;
-            } else if (pixelY > (int)_dust.sprite.textureRect.height - Mathf.FloorToInt(size))
-            {
-                remainingY = (int)_dust.sprite.textureRect.height - Mathf.FloorToInt(size) - pixelY;
-                pixelY = (int)_dust.sprite.textureRect.height - Mathf.FloorToInt(size);
-                sizeY -= remainingY;
-            }
-
-            if (remainingX > (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(size)
-                || remainingY > (int)_dust.sprite.textureRect.height - Mathf.FloorToInt(size))
-            {
-                return;
-            }
-
-            if (remainingX > 0 || remainingY > 0)
-            {
-                finalSize = sizeY * sizeX;
-                colors = color.GetRange(color.Count-finalSize, finalSize);
-            }
-            /*/
-
             if (pixelX < 0
                 && pixelX + _dust.sprite.textureRect.width - Mathf.FloorToInt(size) < 0
                 || pixelX > _dust.sprite.textureRect.width - Mathf.FloorToInt(size) 
@@ -150,8 +109,7 @@ namespace ggj25
             {
                 return;
             }
-            
-            
+            /*/
 
             pixelX = Mathf.Clamp(pixelX, 0,
                                  (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(size));

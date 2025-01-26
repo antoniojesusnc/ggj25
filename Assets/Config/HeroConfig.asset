@@ -16,3 +16,4 @@ MonoBehaviour:
   <FrictionRate>k__BackingField: 0.99
   <ShieldDistance>k__BackingField: 1
   <CleanSize>k__BackingField: 160
+  <Lives>k__BackingField: 3

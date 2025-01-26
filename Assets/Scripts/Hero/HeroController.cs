@@ -1,3 +1,4 @@
+using deVoid.Utils;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -17,12 +18,17 @@ namespace ggj25
         private HeroInput _heroInput;
 
         [SerializeField] private Transform shield;
+        
+        [field: SerializeField] 
+        public int CurrentLives { get; private set; }
 
         private const int LAYER_SPIKE = 8;
 
         private void Start()
         {
             _heroInput = GetComponent<HeroInput>();
+
+            CurrentLives = Config.Lives;
         }
 
         private void LateUpdate()
@@ -39,12 +45,12 @@ namespace ggj25
 
         void UpdateSpriteDirection()
         {
-            // Calcula la dirección basada en la posición del escudo respecto al héroe
+            // Calcula la direcciï¿½n basada en la posiciï¿½n del escudo respecto al hï¿½roe
             Vector3 direction = (shield.position - transform.position).normalized;
 
-            // Determina el ángulo en grados
+            // Determina el ï¿½ngulo en grados
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            // Selecciona el sprite según el ángulo
+            // Selecciona el sprite segï¿½n el ï¿½ngulo
             if (angle > 45 && angle <= 135)
             {
                 // Mirando hacia arriba
@@ -74,7 +80,7 @@ namespace ggj25
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            // Detectar colisión con layers específicas
+            // Detectar colisiï¿½n con layers especï¿½ficas
             int collisionLayer = collision.gameObject.layer;
 
             if (collisionLayer == LAYER_SPIKE)
@@ -82,6 +88,12 @@ namespace ggj25
                 Debug.Log("muelto pol: " + collision.gameObject.name);
                 GameManager.Instance.GameOver(false);
             }
+        }
+
+        public void DeductLives()
+        {
+            CurrentLives--;
+            Signals.Get<OnCurrentLivesChangedEvent>().Dispatch(CurrentLives);
         }
     }
 }

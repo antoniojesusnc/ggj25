@@ -15,6 +15,7 @@ namespace ggj25
         [SerializeField] private SpriteRenderer _walldust;
         [SerializeField] private SpriteRenderer _roomLock;
         [SerializeField] private ParticleSystem _cleaningEffect;
+        [field: SerializeField] public Transform CheckPoint { get; private set; }
         
         private List<DoorController> _doors;
         
