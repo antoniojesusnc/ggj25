@@ -59,12 +59,17 @@ namespace ggj25
             
             if (IsCurrentRoomFinished())
             {
-                _currentRoom.Complete();
-                _completedRooms++;
-                CheckWinCondition();
+                CleanCurrentRoom();
             }
         }
-        
+
+        public void CleanCurrentRoom()
+        {
+            _currentRoom.Complete();
+            _completedRooms++;
+            CheckWinCondition();
+        }
+
         private void CheckWinCondition()
         {
             if (_completedRooms >= _rooms.Count)

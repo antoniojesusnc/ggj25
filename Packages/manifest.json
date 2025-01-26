@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.domybest.mybox": "https://github.com/Deadcows/MyBox.git",
     "com.marijnzwemmer.unity-toolbar-extender": "https://github.com/marijnz/unity-toolbar-extender.git",
     "com.pixeption.mck": "https://github.com/pixeption/MobileConsoleKit.git",
     "com.teamon.screenshooter": "https://github.com/Team-on/UnityScreenShooter.git",

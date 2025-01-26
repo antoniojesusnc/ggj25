@@ -1,3 +1,5 @@
+using MobileConsole;
+using MyBox;
 using UnityEngine;
 
 namespace ggj25
@@ -11,5 +13,11 @@ namespace ggj25
         [field: Header("Game Over Delay")]
         [field: SerializeField]
         public float GameOverDelay { get; private set; }
+
+        [ButtonMethod]
+        public void CleanCurrent()
+        {
+            GameManager.Instance.LevelManager.CleanCurrentRoom();
+        }
     }
 }
