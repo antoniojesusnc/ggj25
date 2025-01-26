@@ -16,5 +16,5 @@ MonoBehaviour:
   <JumpInterval>k__BackingField: 3
   <Friction>k__BackingField: 0.95
   <AreaToPaint>k__BackingField: 100
-  <ColorToPaint>k__BackingField: {r: 0.638, g: 0, b: 0, a: 1}
+  <ColorToPaint>k__BackingField: {r: 0.638, g: 0, b: 0, a: 0.8235294}
   <SpeedToConsiderStopped>k__BackingField: 1
