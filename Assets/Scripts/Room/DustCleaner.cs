@@ -76,10 +76,10 @@ namespace ggj25
             }
             PaintPosition(position, cleanSize, color);
         }
-        
+
         private void PaintPosition(Vector3 position, int size, List<Color> color)
         {
-            var percentageX = (position.x - _dustRect.xMin) / (_dustRect.xMax -_dustRect.xMin);
+            var percentageX = (position.x - _dustRect.xMin) / (_dustRect.xMax - _dustRect.xMin);
             var percentageY = (position.y - _dustRect.yMin) / (_dustRect.yMax - _dustRect.yMin);
 
             var pixelX = Mathf.RoundToInt(percentageX * _dust.sprite.textureRect.width);
@@ -87,15 +87,15 @@ namespace ggj25
 
             int sizeX = size;
             int sizeY = size;
-            
+
             pixelX -= Mathf.FloorToInt(size * 0.5f);
             pixelY -= Mathf.FloorToInt(size * 0.5f);
-            
+
             var colors = color;
-            
+
             /*
             var finalSize = size;
-            
+
             var remainingX = 0;
             var remainingY = 0;
             if (pixelX < 0)
@@ -109,7 +109,7 @@ namespace ggj25
                 pixelX = (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(size);
                 sizeX -= remainingX;
             }
-            
+
             if (pixelY < 0)
             {
                 remainingY = -pixelY;
@@ -127,13 +127,32 @@ namespace ggj25
             {
                 return;
             }
-            
+
             if (remainingX > 0 || remainingY > 0)
             {
                 finalSize = sizeY * sizeX;
                 colors = color.GetRange(color.Count-finalSize, finalSize);
             }
             /*/
+
+            if (pixelX < 0
+                && pixelX + _dust.sprite.textureRect.width - Mathf.FloorToInt(size) < 0
+                || pixelX > _dust.sprite.textureRect.width - Mathf.FloorToInt(size) 
+                && pixelX + _dust.sprite.textureRect.width - Mathf.FloorToInt(size) > _dust.sprite.textureRect.width - Mathf.FloorToInt(size))
+            {
+                return;
+            }
+            
+            if (pixelY < 0
+                && pixelY + _dust.sprite.textureRect.height - Mathf.FloorToInt(size) < 0
+                || pixelY > _dust.sprite.textureRect.height - Mathf.FloorToInt(size) 
+                && pixelY + _dust.sprite.textureRect.height - Mathf.FloorToInt(size) > _dust.sprite.textureRect.height - Mathf.FloorToInt(size))
+            {
+                return;
+            }
+            
+            
+
             pixelX = Mathf.Clamp(pixelX, 0,
                                  (int)_dust.sprite.textureRect.width - Mathf.FloorToInt(size));
             pixelY = Mathf.Clamp(pixelY, 0,
