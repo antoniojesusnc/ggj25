@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 namespace ggj25
 {
     public class EnemyBase : SpikeSpawner
     {
-        [SerializeField] private float moveSpeed = 3f;
-        private GameObject currentEnemy;
         private RoomController _room;
-
         private GameObject Target;
 
         private void Start()
@@ -20,6 +18,10 @@ namespace ggj25
 
         protected override void ShootSpike()
         {
+            if (_room == null)
+            {
+                return;
+            }
             if (!_room.IsActive)
             {
                 return;
