@@ -35,16 +35,17 @@ namespace ggj25
             SceneManager.LoadScene(0);
             IsInGame = false;
             
-            //De momento dejo esta cancion para empezar
+            SoundManager.Instance.StopAllSounds();
             SoundManager.Instance.StopLoop();
             SoundManager.Instance.PlayLoop(AudioType.Loop.MainTheme);
         }
 
         public void ToGame()
         {
+            _mainMusicTimer?.Kill();
+            SoundManager.Instance.StopAllSounds();
             SoundManager.Instance.StopLoop();
             SoundManager.Instance.PlaySFX(AudioType.SFX.GameTheme, OnPlayMainTheme);
-            _mainMusicTimer?.Kill();
             
             SceneManager.LoadScene(1);
             SceneManager.sceneLoaded += OnGameSceneLoaded;
@@ -56,8 +57,13 @@ namespace ggj25
 
         private void OnPlayMainTheme(AudioSFX sfx, AudioClip clip)
         {
-            _mainMusicTimer = DOVirtual.DelayedCall(clip.length, () => 
-                                      SoundManager.Instance.PlaySFX(AudioType.SFX.GameTheme, OnPlayMainTheme));
+            _mainMusicTimer = DOVirtual.DelayedCall(clip.length, OnFinishLoop);
+            //_mainMusicTimer = DOVirtual.DelayedCall(1, OnFinishLoop);
+        }
+
+        private void OnFinishLoop()
+        {
+            SoundManager.Instance.PlaySFX(AudioType.SFX.GameTheme, OnPlayMainTheme);
         }
 
         private void OnGameSceneLoaded(Scene arg0, LoadSceneMode arg1)
