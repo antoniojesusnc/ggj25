@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d63bd12a2fc0968c7965438c054e3b2e, type: 3}
-  m_Name: ShootSpike
+  m_Name: ProjectileDestroyed
   m_EditorClassIdentifier: 
-  volume: 0.05
-  pitch: 1
-  TypeName: 5
+  volume: 0.1
+  pitch: 1.6
+  TypeName: 2
   clips:
-  - {fileID: 8300000, guid: 83df25fd2a30e064c8e5b15ed26a2efe, type: 3}
+  - {fileID: 8300000, guid: fb792f91b55ea2c4e86d275314ddbdef, type: 3}
