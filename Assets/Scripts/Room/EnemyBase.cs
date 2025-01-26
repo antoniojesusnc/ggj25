@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 namespace ggj25
@@ -20,6 +21,10 @@ namespace ggj25
 
         protected override void ShootSpike()
         {
+            if (_room == null)
+            {
+                return;
+            }
             if (!_room.IsActive)
             {
                 return;

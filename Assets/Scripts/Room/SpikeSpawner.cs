@@ -41,6 +41,7 @@ public class SpikeSpawner : MonoBehaviour
 
     protected virtual void ShootSpike()
     {
+        SoundManager.Instance.PlaySFX(AudioType.SFX.ShootSpike);
         // Instancia el pincho en el punto de disparo
         GameObject spike = Instantiate(spikePrefab, shootPoint.position, Quaternion.identity);
 

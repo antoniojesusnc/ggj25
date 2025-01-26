@@ -16,11 +16,13 @@ namespace ggj25
         
         public void ClickOnContinue()
         {
+            SoundManager.Instance.PlaySFX(AudioType.SFX.Click);
             GameManager.Instance.ContinueGame();
         }
         
         public void ClickOnMainMenu()
         {
+            SoundManager.Instance.PlaySFX(AudioType.SFX.Click);
             GameManager.Instance.ToMainMenu();
         }
     }
