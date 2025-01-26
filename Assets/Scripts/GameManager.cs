@@ -15,6 +15,8 @@ namespace ggj25
         
         public LevelManager LevelManager { get; private set; }
 
+        private Tween _mainMusicTimer;
+        
         private void Start()
         {
             SoundManager.Instance.StopLoop();
@@ -23,6 +25,7 @@ namespace ggj25
 
         public void ToMainMenu()
         {
+            _mainMusicTimer?.Kill();
             SceneManager.LoadScene(0);
             IsInGame = false;
             
@@ -34,13 +37,20 @@ namespace ggj25
         public void ToGame()
         {
             SoundManager.Instance.StopLoop();
-            SoundManager.Instance.PlayLoop(AudioType.Loop.GameTheme);
+            SoundManager.Instance.PlaySFX(AudioType.SFX.GameTheme, OnPlayMainTheme);
+            _mainMusicTimer?.Kill();
             
             SceneManager.LoadScene(1);
             SceneManager.sceneLoaded += OnGameSceneLoaded;
 
             Time.timeScale = 1;
             IsInGame = true;
+        }
+
+        private void OnPlayMainTheme(AudioSFX sfx, AudioClip clip)
+        {
+            _mainMusicTimer = DOVirtual.DelayedCall(clip.length, () => 
+                                      SoundManager.Instance.PlaySFX(AudioType.SFX.GameTheme, OnPlayMainTheme));
         }
 
         private void OnGameSceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -63,6 +73,7 @@ namespace ggj25
 
         public void GameOver(bool isWin)
         {
+            _mainMusicTimer?.Kill();
             SoundManager.Instance.StopLoop();
             Time.timeScale = 0;
 
@@ -81,6 +92,7 @@ namespace ggj25
 
         public void ExitGame()
         {
+            _mainMusicTimer?.Kill();
             Application.Quit();
 
 #if UNITY_EDITOR
@@ -97,7 +109,7 @@ namespace ggj25
 
             if (!IsInGame)
             {
-                GameManager.Instance.ExitGame();
+                ExitGame();
             }
             else if (IsPlaying)
             {

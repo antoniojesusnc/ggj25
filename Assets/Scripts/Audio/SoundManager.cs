@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class AudioType
 {
@@ -10,8 +12,10 @@ public static class AudioType
         ProjectileDestroyed,
         HitInShield,
         Click,
-
-        ShootSpike
+        ShootSpike,
+        GameTheme,
+        GameWon,
+        GameOver,
     }
 
     public enum Loop
@@ -108,7 +112,7 @@ public class SoundManager : MonoBehaviour
         loopSource.Stop();
     }
 
-    public void PlaySFX(AudioType.SFX sfxType)
+    public void PlaySFX(AudioType.SFX sfxType, Action<AudioSFX, AudioClip> onPlaySFX = null)
     {
         AudioSFX sound = sfxDatabase.Find(s => s.TypeName == sfxType);
         
@@ -137,6 +141,7 @@ public class SoundManager : MonoBehaviour
         source.volume = sound.volume;
         source.pitch = sound.pitch;
         source.Play();
+        onPlaySFX?.Invoke(sound, clip);
     }
 
 

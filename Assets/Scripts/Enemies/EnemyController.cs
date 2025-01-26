@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,15 +14,22 @@ namespace ggj25
         private bool _jumping;
 
         private Rigidbody2D _rigidbody2D;
-        
+        private RoomController _roomController;
+
         private void Start()
         {
             WaitForJump();
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _roomController = gameObject.GetComponentInParent<RoomController>();
         }
 
         private void Update()
         {
+            if (!_roomController.IsActive)
+            {
+                return;
+            }
+            
             if (_jumping)
             {
                 CheckJumpStop();
