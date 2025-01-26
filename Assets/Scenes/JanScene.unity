@@ -1254,6 +1254,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: World
       objectReference: {fileID: 0}
+    - target: {fileID: 5184132582258976689, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _areaToPaint
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184132582258976689, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _cleanOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707546493080053743, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _areaToPaint
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707546493080053743, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _cleanOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5771011842286466660, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1382,9 +1398,33 @@ PrefabInstance:
       propertyPath: m_Points.Array.data[4].y
       value: -0.05582905
       objectReference: {fileID: 0}
+    - target: {fileID: 7462476251776190281, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _areaToPaint
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7462476251776190281, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _cleanOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836269543730816159, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _areaToPaint
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836269543730816159, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _cleanOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8762475123568935714, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8907662725131648810, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _areaToPaint
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8907662725131648810, guid: 0d3082ffe51214f489ac038d82df74c0, type: 3}
+      propertyPath: _cleanOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

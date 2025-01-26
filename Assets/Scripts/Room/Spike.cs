@@ -14,7 +14,7 @@ namespace ggj25
         {
             if (_cleanOnAwake)
             {
-                GameManager.Instance.LevelManager.DustCleaner.PaintOther(
+                GetComponentInParent<RoomController>()?.DustCleaner?.PaintOther(
                     transform.position, _areaToPaint, Color.clear);
             }
         }
