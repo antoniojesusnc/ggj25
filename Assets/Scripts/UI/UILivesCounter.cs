@@ -15,6 +15,7 @@ namespace ggj25
 
             var maxLives = GameObject.FindObjectOfType<HeroController>().Config.Lives;
             OnCurrentLivesChanged(maxLives);
+
         }
 
         private void OnCurrentLivesChanged(int currentLives)
@@ -23,6 +24,10 @@ namespace ggj25
             {
                 _lives[i].gameObject.SetActive((i+1) <= currentLives);
             }
+        }
+        private void OnDestroy()
+        {
+            Signals.Get<OnCurrentLivesChangedEvent>().RemoveListener(OnCurrentLivesChanged);
         }
     }
 }

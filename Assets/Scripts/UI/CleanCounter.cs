@@ -18,5 +18,9 @@ namespace ggj25
         {
             _counter.text = $"Cleaned: {rate * 100:#00}%";
         }
+        private void OnDestroy()
+        {
+            Signals.Get<OnRoomCleaningRateChanged>().RemoveListener(OnRoomCleaningRate);
+        }
     }
 }
