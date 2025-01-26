@@ -16,6 +16,7 @@ public static class AudioType
         GameTheme,
         GameWon,
         GameOver,
+        HeroDied,
     }
 
     public enum Loop

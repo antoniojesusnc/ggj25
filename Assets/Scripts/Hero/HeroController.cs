@@ -86,6 +86,7 @@ namespace ggj25
             if (collisionLayer == LAYER_SPIKE)
             {
                 Debug.Log("muelto pol: " + collision.gameObject.name);
+                SoundManager.Instance.PlaySFX(AudioType.SFX.HeroDied);
                 GameManager.Instance.GameOver(false);
             }
         }

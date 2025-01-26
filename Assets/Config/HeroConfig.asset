@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeroConfig
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 4
-  <FrictionRate>k__BackingField: 0.99
+  <FrictionRate>k__BackingField: 0.985
   <ShieldDistance>k__BackingField: 1
   <CleanSize>k__BackingField: 160
   <Lives>k__BackingField: 3

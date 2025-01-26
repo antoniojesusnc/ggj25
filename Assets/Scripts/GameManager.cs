@@ -88,15 +88,6 @@ namespace ggj25
         public void GameOver(bool isWin)
         {
             Time.timeScale = 0;
-
-            if (isWin)
-            {
-                SoundManager.Instance.PlayLoop(AudioType.Loop.GameWon);
-            }
-            else
-            {
-                SoundManager.Instance.PlayLoop(AudioType.Loop.GameOver);
-            }
             
             DOVirtual.DelayedCall(GameConfig.GameOverDelay, () => CheckGameOver(isWin));
         }
@@ -129,6 +120,15 @@ namespace ggj25
 
         private void ShowGameOver(bool isWin)
         {
+            if (isWin)
+            {
+                SoundManager.Instance.PlaySFX(AudioType.SFX.GameWon);
+            }
+            else
+            {
+                SoundManager.Instance.PlaySFX(AudioType.SFX.GameOver);
+            }
+            
             IsGameOver = true;
             FindObjectOfType<UIGameOverView>(true).Open(isWin);
             _mainMusicTimer?.Kill();
