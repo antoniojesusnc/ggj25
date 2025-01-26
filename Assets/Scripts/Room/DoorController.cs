@@ -9,8 +9,11 @@ namespace ggj25
 
         public void OpenDoor()
         {
-            _colliders.gameObject.SetActive(false);
-            _blockImage.gameObject.SetActive(false);
+            if (_colliders != null)
+            {
+                _colliders.gameObject.SetActive(false);
+                _blockImage.gameObject.SetActive(false);
+            }
         }
     }
 }
