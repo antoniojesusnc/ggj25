@@ -7,6 +7,11 @@ namespace ggj25
     {
         [SerializeField]
         private EnemyConfig _enemyConfig;
+        
+        public void SetConfig(EnemyConfig config)
+        {
+            _enemyConfig = config;
+        }
 
         private float _timeStamp;
 

@@ -8,7 +8,7 @@ namespace ggj25
     {
         [SerializeField] private float moveSpeed = 3f;
         private GameObject currentEnemy;
-        private RoomController _room;
+        protected RoomController _room;
 
         private GameObject Target;
 
