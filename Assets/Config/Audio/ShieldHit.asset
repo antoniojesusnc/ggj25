@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63bd12a2fc0968c7965438c054e3b2e, type: 3}
   m_Name: ShieldHit
   m_EditorClassIdentifier: 
-  volume: 1
+  volume: 0.7
   pitch: 1
   TypeName: 3
   clips:
