@@ -315,6 +315,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6282853418677725337}
     - target: {fileID: 1366794366039806809, guid: d4a47c681d3925c4a8747457baac336a, type: 3}
+      propertyPath: spikePrefab
+      value: 
+      objectReference: {fileID: 7033510402594531635, guid: 07caf55c31f93e34784faaa162c5806b, type: 3}
+    - target: {fileID: 1366794366039806809, guid: d4a47c681d3925c4a8747457baac336a, type: 3}
       propertyPath: shootFrequency
       value: 3.78
       objectReference: {fileID: 0}
@@ -395,6 +399,10 @@ PrefabInstance:
       propertyPath: shootPoint
       value: 
       objectReference: {fileID: 2582813692014843877}
+    - target: {fileID: 1366794366039806809, guid: d4a47c681d3925c4a8747457baac336a, type: 3}
+      propertyPath: spikePrefab
+      value: 
+      objectReference: {fileID: 7033510402594531635, guid: 07caf55c31f93e34784faaa162c5806b, type: 3}
     - target: {fileID: 1366794366039806809, guid: d4a47c681d3925c4a8747457baac336a, type: 3}
       propertyPath: shootFrequency
       value: 5.15
