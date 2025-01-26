@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8992a8cb3f1d2064a914a646ffdfa56f, type: 3}
   m_Name: BossEnemyConfig
   m_EditorClassIdentifier: 
-  <JumpDistance>k__BackingField: 100
+  <JumpDistance>k__BackingField: 15000
   <JumpInterval>k__BackingField: 1
   <Friction>k__BackingField: 0.95
   <AreaToPaint>k__BackingField: 400
-  <ColorToPaint>k__BackingField: {r: 0.638, g: 0, b: 0, a: 0.6431373}
+  <ColorToPaint>k__BackingField: {r: 0.4392157, g: 0.38682848, b: 0.19632943, a: 1}
   <SpeedToConsiderStopped>k__BackingField: 1

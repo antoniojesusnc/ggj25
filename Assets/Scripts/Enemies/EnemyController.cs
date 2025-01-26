@@ -74,7 +74,7 @@ namespace ggj25
         private void Jump()
         {
             _jumping = true;
-            var jump = Random.insideUnitCircle * _enemyConfig.JumpDistance;
+            var jump = Random.insideUnitCircle.normalized * _enemyConfig.JumpDistance;
             _rigidbody2D.AddForce(jump);
         }
     }
